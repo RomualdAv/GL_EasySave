@@ -8,7 +8,8 @@ public class Fr_View
     {
         Console.WriteLine("Bienvenue dans EasySave");
         Console.WriteLine("1. Créer un job");
-        Console.WriteLine("2. Quitter");
+        Console.WriteLine("2. Executer un ou plusieurs jobs");
+        Console.WriteLine("3. Quitter");
         Console.Write("Choisissez une option : ");
         string choice = Console.ReadLine();
 
@@ -18,6 +19,10 @@ public class Fr_View
                 ShowJobCreation();
                 break;
             case "2":
+                ShowSavedJobs();
+                ShowJobChoice();
+                break;
+            case "3":
                 Environment.Exit(0);
                 break;
             default:
@@ -63,5 +68,51 @@ public class Fr_View
         } while (!int.TryParse(input, out int type) || !_frViewModel.SetJobType(type));
         
         _frViewModel.AddJob();
+        
+        Main();
+    }
+    
+    public void ShowSavedJobs()
+    {
+        var jobs = _frViewModel.GetAllSavedJobs();
+
+        Console.WriteLine("\nListe des jobs enregistrés :");
+
+        if (jobs.Count == 0)
+        {
+            Console.WriteLine("Aucun job trouvé.");
+        }
+        else
+        {
+            for (int i = 0; i < jobs.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {jobs[i].Name}");
+            }
+        }
+    }
+    
+    public void ShowJobChoice()
+    {
+        var jobs = _frViewModel.GetAllSavedJobs();
+
+        if (jobs.Count == 0)
+        {
+            Console.WriteLine("Aucun job à exécuter.");
+            Main();
+            return;
+        }
+
+        Console.Write("\nSélectionnez les jobs à exécuter (ex: 1+3 ou 2-4) : ");
+        string input = Console.ReadLine();
+        var selectedIndexes = _frViewModel.ParseSelection(input, jobs.Count);
+
+        Console.WriteLine("\nJobs sélectionnés :");
+        foreach (int index in selectedIndexes)
+        {
+            Console.WriteLine($"Lancement du job {jobs[index].Name}...");
+            _frViewModel.ExecuteJobs(jobs[index]);
+        }
+        
+        Main();
     }
 }

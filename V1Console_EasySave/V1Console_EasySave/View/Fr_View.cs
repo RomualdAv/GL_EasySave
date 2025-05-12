@@ -23,16 +23,18 @@ public class Fr_View
         {
             Console.WriteLine("Bienvenue dans EasySave");
             Console.WriteLine("1. Créer un job");
-            Console.WriteLine("2. Quitter");
+            Console.WriteLine("2. Executer un ou plusieurs jobs");
             Console.WriteLine("3. Changer la langue");
+            Console.WriteLine("4. Quitter");
             Console.Write("Choisissez une option : ");
         }
         else
         {
             Console.WriteLine("Welcome to EasySave");
             Console.WriteLine("1. Create a job");
-            Console.WriteLine("2. Exit");
+            Console.WriteLine("2. Execute one or more jobs");
             Console.WriteLine("3. Change language");
+            Console.WriteLine("4. Exit");
             Console.Write("Choose an option: ");
         }
 
@@ -48,13 +50,12 @@ public class Fr_View
                 ShowJobChoice();
                 break;
             case "3":
-                Environment.Exit(0);
-                break;
-            case "3":
                 ChangeLanguage();
                 break;
+            case "4":
+                Environment.Exit(0);
+                break;
             default:
-                Console.WriteLine(_language == "FR" ? "Option invalide." : "Invalid option.");
                 Main();
                 break;
         }
@@ -158,9 +159,6 @@ public class Fr_View
     private class Config
     {
         public string Language { get; set; } = "FR";
-
-        
-        Main();
     }
     
     public void ShowSavedJobs()

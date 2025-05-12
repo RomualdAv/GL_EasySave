@@ -8,7 +8,7 @@ public class Fr_ViewModel
 
     public void AddJob()
     {
-        // Save the job to a file
+        // Save the job to a json file
         _jobManager.SaveJob(NewJob);
     }
     
@@ -56,4 +56,54 @@ public class Fr_ViewModel
         }
         return false;
     }
+    
+    public List<string> GetSavedJobNames()
+    {
+        return _jobManager.GetSavedJobNames();
+    }
+
+    public List<JobDef> GetAllSavedJobs()
+    {
+        return _jobManager.GetAllSavedJobs();
+    }
+    
+    public List<int> ParseSelection(string input, int max)
+    {
+        var result = new List<int>();
+
+        if (string.IsNullOrWhiteSpace(input))
+            return result;
+
+        if (input.Contains("-"))
+        {
+            var parts = input.Split('-');
+            if (parts.Length == 2 &&
+                int.TryParse(parts[0], out int start) &&
+                int.TryParse(parts[1], out int end) &&
+                start >= 1 && end <= max && start <= end)
+            {
+                for (int i = start; i <= end; i++)
+                    result.Add(i - 1);
+            }
+        }
+        else
+        {
+            var parts = input.Split('+');
+            foreach (var part in parts)
+            {
+                if (int.TryParse(part, out int index) && index >= 1 && index <= max)
+                {
+                    result.Add(index - 1);
+                }
+            }
+        }
+
+        return result.Distinct().ToList();
+    }
+    
+    public void ExecuteJobs(JobDef job)
+    {
+        _jobManager.ExecuteJob(job);
+    }
+
 }

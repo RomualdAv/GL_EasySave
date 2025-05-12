@@ -13,3 +13,18 @@ C:\Users\romua\Desktop\CESI\A3\Genie Logiciel\Depot projet\GL_EasySave\V1Console
 C:\Users\romua\Desktop\CESI\A3\Genie Logiciel\Depot projet\GL_EasySave\V1Console_EasySave\V1Console_EasySave\obj\Debug\net9.0\V1Console_EasySave.pdb
 C:\Users\romua\Desktop\CESI\A3\Genie Logiciel\Depot projet\GL_EasySave\V1Console_EasySave\V1Console_EasySave\obj\Debug\net9.0\V1Console_EasySave.genruntimeconfig.cache
 C:\Users\romua\Desktop\CESI\A3\Genie Logiciel\Depot projet\GL_EasySave\V1Console_EasySave\V1Console_EasySave\obj\Debug\net9.0\ref\V1Console_EasySave.dll
+C:\Users\PC\Desktop\projet GL\P-F\GL_EasySave\V1Console_EasySave\V1Console_EasySave\bin\Debug\net9.0\V1Console_EasySave.exe
+C:\Users\PC\Desktop\projet GL\P-F\GL_EasySave\V1Console_EasySave\V1Console_EasySave\bin\Debug\net9.0\V1Console_EasySave.deps.json
+C:\Users\PC\Desktop\projet GL\P-F\GL_EasySave\V1Console_EasySave\V1Console_EasySave\bin\Debug\net9.0\V1Console_EasySave.runtimeconfig.json
+C:\Users\PC\Desktop\projet GL\P-F\GL_EasySave\V1Console_EasySave\V1Console_EasySave\bin\Debug\net9.0\V1Console_EasySave.dll
+C:\Users\PC\Desktop\projet GL\P-F\GL_EasySave\V1Console_EasySave\V1Console_EasySave\bin\Debug\net9.0\V1Console_EasySave.pdb
+C:\Users\PC\Desktop\projet GL\P-F\GL_EasySave\V1Console_EasySave\V1Console_EasySave\obj\Debug\net9.0\V1Console_EasySave.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\Desktop\projet GL\P-F\GL_EasySave\V1Console_EasySave\V1Console_EasySave\obj\Debug\net9.0\V1Console_EasySave.AssemblyInfoInputs.cache
+C:\Users\PC\Desktop\projet GL\P-F\GL_EasySave\V1Console_EasySave\V1Console_EasySave\obj\Debug\net9.0\V1Console_EasySave.AssemblyInfo.cs
+C:\Users\PC\Desktop\projet GL\P-F\GL_EasySave\V1Console_EasySave\V1Console_EasySave\obj\Debug\net9.0\V1Console_EasySave.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\projet GL\P-F\GL_EasySave\V1Console_EasySave\V1Console_EasySave\obj\Debug\net9.0\V1Console_EasySave.sourcelink.json
+C:\Users\PC\Desktop\projet GL\P-F\GL_EasySave\V1Console_EasySave\V1Console_EasySave\obj\Debug\net9.0\V1Console_EasySave.dll
+C:\Users\PC\Desktop\projet GL\P-F\GL_EasySave\V1Console_EasySave\V1Console_EasySave\obj\Debug\net9.0\refint\V1Console_EasySave.dll
+C:\Users\PC\Desktop\projet GL\P-F\GL_EasySave\V1Console_EasySave\V1Console_EasySave\obj\Debug\net9.0\V1Console_EasySave.pdb
+C:\Users\PC\Desktop\projet GL\P-F\GL_EasySave\V1Console_EasySave\V1Console_EasySave\obj\Debug\net9.0\V1Console_EasySave.genruntimeconfig.cache
+C:\Users\PC\Desktop\projet GL\P-F\GL_EasySave\V1Console_EasySave\V1Console_EasySave\obj\Debug\net9.0\ref\V1Console_EasySave.dll

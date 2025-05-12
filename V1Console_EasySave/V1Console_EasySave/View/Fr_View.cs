@@ -29,6 +29,12 @@ public class Fr_View
     
     public void ShowJobCreation()
     {
+        if(_frViewModel.GetJobsNB() >= 5)
+        {
+            Console.WriteLine("Vous avez atteint le nombre maximum de jobs (5).");
+            Main();
+            return;
+        }
         Console.WriteLine("Création d'un job...");
 
         string input;

@@ -17,4 +17,14 @@ public class JobManager
         File.WriteAllText(fileName, json);
         Console.WriteLine($"Job '{newJob.Name}' enregistré dans : {fileName}");
     }
+    
+    public int GetJobCount()
+    {
+        if (!Directory.Exists(JobDirectory))
+        {
+            return 0;
+        }
+        string[] files = Directory.GetFiles(JobDirectory, "*.json");
+        return files.Length;
+    }
 }

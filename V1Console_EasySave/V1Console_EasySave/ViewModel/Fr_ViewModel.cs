@@ -12,6 +12,11 @@ public class Fr_ViewModel
         _jobManager.SaveJob(NewJob);
     }
     
+    public int GetJobsNB()
+    {
+        return _jobManager.GetJobCount();
+    }
+    
     public bool SetName(string name)
     {
         if (!string.IsNullOrWhiteSpace(name))

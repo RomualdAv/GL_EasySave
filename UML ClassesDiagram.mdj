@@ -474,7 +474,7 @@
 											"top": 412,
 											"width": 130.720703125,
 											"height": 13,
-											"text": "+GetSavedJobs()",
+											"text": "+GetJobsNB()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -790,7 +790,7 @@
 											"top": 724,
 											"width": 163.931640625,
 											"height": 13,
-											"text": "+AddJob()",
+											"text": "+SaveJob()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2996,8 +2996,8 @@
 											"fillColor": "#FFFFFF00",
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 128,
-											"top": -80,
+											"left": 96,
+											"top": -16,
 											"height": 13
 										},
 										{
@@ -3009,8 +3009,8 @@
 											"fillColor": "#FFFFFF00",
 											"font": "Arial;13;1",
 											"parentStyle": true,
-											"left": 173,
-											"top": 590,
+											"left": 157,
+											"top": 622,
 											"width": 1159,
 											"height": 13,
 											"text": "Model"
@@ -3025,8 +3025,8 @@
 											"fillColor": "#FFFFFF00",
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 128,
-											"top": -80,
+											"left": 96,
+											"top": -16,
 											"width": 73.67724609375,
 											"height": 13,
 											"text": "(from Model)"
@@ -3041,8 +3041,8 @@
 											"fillColor": "#FFFFFF00",
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 128,
-											"top": -80,
+											"left": 96,
+											"top": -16,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
@@ -3050,8 +3050,8 @@
 									"fillColor": "#FFFFFF00",
 									"font": "Arial;13;0",
 									"parentStyle": true,
-									"left": 168,
-									"top": 583,
+									"left": 152,
+									"top": 615,
 									"width": 1169,
 									"height": 25,
 									"stereotypeLabel": {
@@ -3072,8 +3072,8 @@
 							"font": "Arial;13;0",
 							"parentStyle": false,
 							"containerChangeable": true,
-							"left": 168,
-							"top": 568,
+							"left": 152,
+							"top": 600,
 							"width": 1168,
 							"height": 488,
 							"nameCompartment": {
@@ -3654,7 +3654,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGWpZg16UeyKyM="
 							},
-							"name": "GetSavedJobs"
+							"name": "GetJobsNB"
 						},
 						{
 							"_type": "UMLOperation",
@@ -3738,7 +3738,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGWpZ1JwUfzjJc="
 							},
-							"name": "AddJob"
+							"name": "SaveJob"
 						},
 						{
 							"_type": "UMLOperation",

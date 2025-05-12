@@ -1,27 +1,20 @@
 ﻿namespace V1Console_EasySave.Model;
+using System.Text.Json;
 using System.IO;
 
 public class JobManager
 {
-    private String JobDirectory = "";
+    private readonly string JobDirectory = Path.Combine("..", "..", "..", "SavedJobs");
     
-    public void AddJob()
+    public void SaveJob(JobDef newJob)
     {
-        Console.WriteLine("Creation d'un job...");
-        JobDef newJob = new JobDef();
-        Console.Write("Entrez le nom du job : ");
-        newJob.Name = Console.ReadLine();
-        while (!Directory.Exists(newJob.SourceDirectory))
+        if (!Directory.Exists(JobDirectory))
         {
-            Console.Write("Entrez le repertoire source : ");
-            newJob.SourceDirectory = Console.ReadLine();
+            Directory.CreateDirectory(JobDirectory);
         }
-        while (!Directory.Exists(newJob.TargetDirectory))
-        {
-            Console.Write("Entrez le repertoire cible où seront copié les fichiers : ");
-            newJob.TargetDirectory = Console.ReadLine();
-        }
-        Console.Write("Entrez le type de job : ");
-        newJob.JobType = Console.ReadLine();
+        string fileName = Path.Combine(JobDirectory, $"{newJob.Name}.json");
+        string json = JsonSerializer.Serialize(newJob, new JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText(fileName, json);
+        Console.WriteLine($"Job '{newJob.Name}' enregistré dans : {fileName}");
     }
 }

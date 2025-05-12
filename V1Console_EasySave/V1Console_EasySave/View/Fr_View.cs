@@ -1,7 +1,5 @@
-﻿using V1Console_EasySave.ViewModel;
-
-namespace V1Console_EasySave.View;
-
+﻿namespace V1Console_EasySave.View;
+using V1Console_EasySave.ViewModel;
 public class Fr_View
 {
     private Fr_ViewModel _frViewModel = new Fr_ViewModel();
@@ -17,7 +15,7 @@ public class Fr_View
         switch (choice)
         {
             case "1":
-                _frViewModel.CreateJob();
+                ShowJobCreation();
                 break;
             case "2":
                 Environment.Exit(0);
@@ -27,5 +25,37 @@ public class Fr_View
                 Main();
                 break;
         }
+    }
+    
+    public void ShowJobCreation()
+    {
+        Console.WriteLine("Création d'un job...");
+
+        string input;
+        do
+        {
+            Console.Write("Entrez le nom du job : ");
+            input = Console.ReadLine();
+        } while (!_frViewModel.SetName(input));
+
+        do
+        {
+            Console.Write("Entrez le répertoire source : ");
+            input = Console.ReadLine();
+        } while (!_frViewModel.SetSourceDirectory(input));
+
+        do
+        {
+            Console.Write("Entrez le répertoire cible où seront copiés les fichiers : ");
+            input = Console.ReadLine();
+        } while (!_frViewModel.SetTargetDirectory(input));
+
+        do
+        {
+            Console.Write("Entrez le type de job : 1 = Complète - 2 = Différentielle : ");
+            input = Console.ReadLine();
+        } while (!int.TryParse(input, out int type) || !_frViewModel.SetJobType(type));
+        
+        _frViewModel.AddJob();
     }
 }

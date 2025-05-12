@@ -44,6 +44,10 @@ public class Fr_View
                 ShowJobCreation();
                 break;
             case "2":
+                ShowSavedJobs();
+                ShowJobChoice();
+                break;
+            case "3":
                 Environment.Exit(0);
                 break;
             case "3":
@@ -147,11 +151,59 @@ public class Fr_View
         } while (!int.TryParse(input, out int type) || !_frViewModel.SetJobType(type));
 
         _frViewModel.AddJob();
+
         Main();
     }
 
     private class Config
     {
         public string Language { get; set; } = "FR";
+
+        
+        Main();
+    }
+    
+    public void ShowSavedJobs()
+    {
+        var jobs = _frViewModel.GetAllSavedJobs();
+
+        Console.WriteLine("\nListe des jobs enregistrés :");
+
+        if (jobs.Count == 0)
+        {
+            Console.WriteLine("Aucun job trouvé.");
+        }
+        else
+        {
+            for (int i = 0; i < jobs.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {jobs[i].Name}");
+            }
+        }
+    }
+    
+    public void ShowJobChoice()
+    {
+        var jobs = _frViewModel.GetAllSavedJobs();
+
+        if (jobs.Count == 0)
+        {
+            Console.WriteLine("Aucun job à exécuter.");
+            Main();
+            return;
+        }
+
+        Console.Write("\nSélectionnez les jobs à exécuter (ex: 1+3 ou 2-4) : ");
+        string input = Console.ReadLine();
+        var selectedIndexes = _frViewModel.ParseSelection(input, jobs.Count);
+
+        Console.WriteLine("\nJobs sélectionnés :");
+        foreach (int index in selectedIndexes)
+        {
+            Console.WriteLine($"Lancement du job {jobs[index].Name}...");
+            _frViewModel.ExecuteJobs(jobs[index]);
+        }
+        
+        Main();
     }
 }

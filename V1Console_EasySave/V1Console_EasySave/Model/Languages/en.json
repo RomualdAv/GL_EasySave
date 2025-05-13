@@ -1,0 +1,20 @@
+{
+  "Welcome": "Welcome to EasySave",
+  "CreateJob": "Create a job",
+  "ExecuteJobs": "Execute one or more jobs",
+  "ChangeLanguage": "Change language",
+  "Quit": "Quit",
+  "ChooseOption": "Choose an option: ",
+  "LanguageOptions": "Enter language (e.g., 'fr' or 'en'): ",
+  "JobLimitError": "Maximum number of jobs reached (5).",
+  "EnterJobName": "Enter the job name: ",
+  "EnterSourceDirectory": "Enter the source directory: ",
+  "EnterTargetDirectory": "Enter the target directory: ",
+  "EnterJobType": "Enter job type: 1 = Full, 2 = Differential: ",
+  "NoJobsFound": "No jobs found.",
+  "NoJobsToRun": "No jobs to run.",
+  "SelectJobsToRun": "Select jobs to run (e.g., 1+3 or 2-4): ",
+  "SelectedJobs": "Selected jobs:",
+  "RunningJob": "Running job",
+  "SavedJobsList": "SavedJobsList"
+}

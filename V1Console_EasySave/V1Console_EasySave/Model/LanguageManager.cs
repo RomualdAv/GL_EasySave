@@ -11,7 +11,7 @@ namespace V1Console_EasySave.Model
         public string CurrentLanguage { get; private set; } = "en";
 
         // Path to the config file storing the last used language
-        private readonly string configPath = Path.Combine("..", "..", "..", "Model", "Languages", "l_config.json");
+        private readonly string configPath = Path.Combine("..", "..", "..", "Model", "l_config.json");
 
         // Load a language file based on the given language code
         public void LoadLanguage(string languageCode)

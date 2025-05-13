@@ -1,22 +1,43 @@
 ﻿namespace V1Console_EasySave.ViewModel;
 using V1Console_EasySave.Model;
 
-public class Fr_ViewModel
+public class Console_ViewModel
 {
     private JobManager _jobManager = new JobManager();
     private JobDef NewJob { get; set; } = new JobDef();
+    private LanguageManager _languageManager = new LanguageManager();
 
+    // Class Constructor
+    public Console_ViewModel()
+    {
+        _languageManager.LoadLastUsedLanguage();
+    }
+
+    // Set the language (en/fr)
+    public void SetLanguage(string langCode)
+    {
+        _languageManager.LoadLanguage(langCode);
+    }
+
+    // Translate a key using the current language
+    public string T(string key)
+    {
+        return _languageManager.Translate(key);
+    }
+
+    // Save the current job
     public void AddJob()
     {
-        // Save the job to a json file
         _jobManager.SaveJob(NewJob);
     }
-    
+
+    // Get the number of saved jobs
     public int GetJobsNB()
     {
         return _jobManager.GetJobCount();
     }
-    
+
+    // Set job name
     public bool SetName(string name)
     {
         if (!string.IsNullOrWhiteSpace(name))
@@ -27,6 +48,7 @@ public class Fr_ViewModel
         return false;
     }
 
+    // Set source directory if it exists
     public bool SetSourceDirectory(string path)
     {
         if (Directory.Exists(path))
@@ -37,6 +59,7 @@ public class Fr_ViewModel
         return false;
     }
 
+    // Set target directory if it exists
     public bool SetTargetDirectory(string path)
     {
         if (Directory.Exists(path))
@@ -47,6 +70,7 @@ public class Fr_ViewModel
         return false;
     }
 
+    // Set job type (1 = full, 2 = differential)
     public bool SetJobType(int type)
     {
         if (type == 1 || type == 2)
@@ -56,17 +80,20 @@ public class Fr_ViewModel
         }
         return false;
     }
-    
+
+    // Get names of all saved jobs into a list
     public List<string> GetSavedJobNames()
     {
         return _jobManager.GetSavedJobNames();
     }
 
+    // Get all saved jobs indetails
     public List<JobDef> GetAllSavedJobs()
     {
         return _jobManager.GetAllSavedJobs();
     }
-    
+
+    // Parse the user selection input (e.g., "1+3+5" or "2-4")
     public List<int> ParseSelection(string input, int max)
     {
         var result = new List<int>();
@@ -74,6 +101,7 @@ public class Fr_ViewModel
         if (string.IsNullOrWhiteSpace(input))
             return result;
 
+        // Handle range selection like "2-5"
         if (input.Contains("-"))
         {
             var parts = input.Split('-');
@@ -83,27 +111,27 @@ public class Fr_ViewModel
                 start >= 1 && end <= max && start <= end)
             {
                 for (int i = start; i <= end; i++)
-                    result.Add(i - 1);
+                    result.Add(i - 1); // Convert to zero-based index
             }
         }
-        else
+        else // Handle multiple values like "1+3+4"
         {
             var parts = input.Split('+');
             foreach (var part in parts)
             {
                 if (int.TryParse(part, out int index) && index >= 1 && index <= max)
                 {
-                    result.Add(index - 1);
+                    result.Add(index - 1); // Convert to zero-based index
                 }
             }
         }
 
-        return result.Distinct().ToList();
+        return result.Distinct().ToList(); // Remove duplicates
     }
-    
+
+    // Execute a job
     public void ExecuteJobs(JobDef job)
     {
         _jobManager.ExecuteJob(job);
     }
-
 }

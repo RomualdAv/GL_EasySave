@@ -16,5 +16,6 @@
   "SelectJobsToRun": "Sélectionnez les jobs à exécuter (ex: 1+3 ou 2-4) : ",
   "SelectedJobs": "Jobs sélectionnés :",
   "RunningJob": "Lancement du job",
-  "SavedJobsList": "Liste des jobs enregistrés :"
+  "SavedJobsList": "Liste des jobs enregistrés :",
+  "JobsExecutionCompleted": "Job terminé avec succès !"
 }

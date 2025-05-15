@@ -16,5 +16,6 @@
   "SelectJobsToRun": "Select jobs to run (e.g., 1+3 or 2-4): ",
   "SelectedJobs": "Selected jobs:",
   "RunningJob": "Running job",
-  "SavedJobsList": "SavedJobsList"
+  "SavedJobsList": "SavedJobsList",
+  "JobsExecutionCompleted": "Job completed successfully!"
 }

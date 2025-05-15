@@ -17,7 +17,7 @@ public class JobManager
         string json = JsonSerializer.Serialize(newJob, new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText(fileName, json);
 
-        Console.WriteLine($"Job '{newJob.Name}' enregistré dans : {fileName}");
+        //Console.WriteLine($"Job '{newJob.Name}' saved in : {fileName}");
     }
 
     public int GetJobCount()
@@ -93,7 +93,7 @@ public class JobManager
                 if (job.JobType == 1 || !File.Exists(targetFilePath))
                 {
                     File.Copy(sourceFilePath, targetFilePath, true);
-                    Console.WriteLine($"Copied : {relativePath}");
+                    //Console.WriteLine($"{relativePath} done.");
                 }
                 else if (job.JobType == 2)
                 {
@@ -103,7 +103,7 @@ public class JobManager
                     if (srcTime > dstTime)
                     {
                         File.Copy(sourceFilePath, targetFilePath, true);
-                        Console.WriteLine($"Updated : {relativePath}");
+                        //Console.WriteLine($"{relativePath} done.");
                     }
                 }
 

@@ -34,37 +34,6 @@ public class JobManager
         return files.Length;
     }
     
-    // Return a list of saved job names
-    public List<string> GetSavedJobNames()
-    {
-        List<string> jobNames = new List<string>();
-
-        if (!Directory.Exists(_jobDirectory))
-            return jobNames;
-
-        string[] files = Directory.GetFiles(_jobDirectory, "*.json");
-
-        foreach (var file in files)
-        {
-            try
-            {
-                string json = File.ReadAllText(file);
-                JobDef job = JsonSerializer.Deserialize<JobDef>(json);
-
-                if (job != null && !string.IsNullOrWhiteSpace(job.Name))
-                {
-                    jobNames.Add(job.Name);
-                }
-            }
-            catch (Exception ex)
-            {
-                //Console.WriteLine($"Erreur lecture fichier {file} : {ex.Message}");
-            }
-        }
-
-        return jobNames;
-    }
-    
     // Return the list of all saved job objects
     public List<JobDef> GetAllSavedJobs()
     {

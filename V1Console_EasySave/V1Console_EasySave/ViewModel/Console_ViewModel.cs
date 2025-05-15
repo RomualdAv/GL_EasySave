@@ -81,17 +81,11 @@ public class Console_ViewModel
         return false;
     }
 
-    // Get names of all saved jobs into a list
-    public List<string> GetSavedJobNames()
-    {
-        return _jobManager.GetSavedJobNames();
-    }
-
     // Get all saved jobs indetails
     public List<JobDef> GetAllSavedJobs()
     {
         return _jobManager.GetAllSavedJobs();
-    }
+    }   
 
     // Parse the user selection input (e.g., "1+3+5" or "2-4")
     public List<int> ParseSelection(string input, int max)

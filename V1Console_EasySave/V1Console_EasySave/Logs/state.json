@@ -1,0 +1,12 @@
+[
+  {
+    "JobName": "ATEST",
+    "SourceFilePath": "",
+    "TargetFilePath": "",
+    "State": "END",
+    "TotalFilesToCopy": 2,
+    "TotalFilesSize": 2375,
+    "NbFilesLeftToDo": 0,
+    "Progression": 100
+  }
+]

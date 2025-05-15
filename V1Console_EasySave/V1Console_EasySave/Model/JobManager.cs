@@ -4,10 +4,8 @@ using System.IO;
 
 public class JobManager
 {
-    // Path where job will be saved
     private readonly string _jobDirectory = Path.Combine("..", "..", "..", "SavedJobs");
-    
-    // Save a job
+
     public void SaveJob(JobDef newJob)
     {
         if (!Directory.Exists(_jobDirectory))
@@ -21,8 +19,7 @@ public class JobManager
 
         Console.WriteLine($"Job '{newJob.Name}' enregistré dans : {fileName}");
     }
-    
-    // Return the total number of saved jobs
+
     public int GetJobCount()
     {
         if (!Directory.Exists(_jobDirectory))
@@ -33,8 +30,7 @@ public class JobManager
         string[] files = Directory.GetFiles(_jobDirectory, "*.json");
         return files.Length;
     }
-    
-    // Return the list of all saved job objects
+
     public List<JobDef> GetAllSavedJobs()
     {
         List<JobDef> jobs = new List<JobDef>();
@@ -64,35 +60,36 @@ public class JobManager
 
         return jobs;
     }
-    
-    // Execute a job
-    public void ExecuteJob(JobDef job)
+
+   public void ExecuteJob(JobDef job)
     {
         if (!Directory.Exists(job.SourceDirectory))
         {
-            // Source directory not found
             return;
         }
 
-        // Get all files from source directory (including subdirectories)
         string[] files = Directory.GetFiles(job.SourceDirectory, "*", SearchOption.AllDirectories);
+
+        var stateLogManager = new StateLogManager();
+
+        int totalFiles = files.Length;
+        long totalSize = files.Sum(f => new FileInfo(f).Length);
+        int copiedFiles = 0;
+        long copiedSize = 0;
 
         foreach (var sourceFilePath in files)
         {
             try
             {
-                // Get the relative path of the file to recreate folder structure
                 string relativePath = Path.GetRelativePath(job.SourceDirectory, sourceFilePath);
                 string targetFilePath = Path.Combine(job.TargetDirectory, relativePath);
                 string? targetDir = Path.GetDirectoryName(targetFilePath);
 
-                // Create target subdirectory if needed
                 if (!Directory.Exists(targetDir))
                 {
                     Directory.CreateDirectory(targetDir);
                 }
 
-                // Copy for full job or if file doesn't exist in target
                 if (job.JobType == 1 || !File.Exists(targetFilePath))
                 {
                     File.Copy(sourceFilePath, targetFilePath, true);
@@ -100,7 +97,6 @@ public class JobManager
                 }
                 else if (job.JobType == 2)
                 {
-                    // Differential copy: only copy if source is newer than target
                     DateTime srcTime = File.GetLastWriteTime(sourceFilePath);
                     DateTime dstTime = File.Exists(targetFilePath) ? File.GetLastWriteTime(targetFilePath) : DateTime.MinValue;
 
@@ -110,14 +106,39 @@ public class JobManager
                         Console.WriteLine($"Updated : {relativePath}");
                     }
                 }
+
+                copiedFiles++;
+                copiedSize += new FileInfo(sourceFilePath).Length;
+
+                stateLogManager.UpdateStateLog(new StateLog
+                {
+                    JobName = job.Name,
+                    SourceFilePath = sourceFilePath,
+                    TargetFilePath = targetFilePath,
+                    State = "ACTIVE",
+                    TotalFilesToCopy = totalFiles,
+                    TotalFilesSize = totalSize,
+                    NbFilesLeftToDo = totalFiles - copiedFiles,
+                    Progression = (int)((double)copiedFiles / totalFiles * 100)
+                });
             }
             catch (Exception ex)
             {
-                //Console.WriteLine($"Erreur coipie fichier : {ex.Message}");
+                // Console.WriteLine($"Erreur copie fichier : {ex.Message}");
             }
         }
 
-        // Job execution completed
-        // Console.WriteLine($"Job '{job.Name}' executed successfully.\n");
+        // Met à jour l'état final
+        stateLogManager.UpdateStateLog(new StateLog
+        {
+            JobName = job.Name,
+            SourceFilePath = "",
+            TargetFilePath = "",
+            State = "END",
+            TotalFilesToCopy = totalFiles,
+            TotalFilesSize = totalSize,
+            NbFilesLeftToDo = 0,
+            Progression = 100
+        });
     }
 }

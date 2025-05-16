@@ -85,7 +85,7 @@ public class Console_ViewModel
     public List<JobDef> GetAllSavedJobs()
     {
         return _jobManager.GetAllSavedJobs();
-    }   
+    }
 
     // Parse the user selection input (e.g., "1+3+5" or "2-4")
     public List<int> ParseSelection(string input, int max)
@@ -128,4 +128,16 @@ public class Console_ViewModel
     {
         _jobManager.ExecuteJob(job);
     }
+    public void UpdateJob(JobDef job)
+    {
+        _jobManager.SaveJob(job);
+
+    }
+
+    public void DeleteJob(string jobName)
+    {
+        _jobManager.DeleteJob(jobName);
+    
+    }
+    
 }

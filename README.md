@@ -1,4 +1,4 @@
-# 🗂️ EasySave - Version 1.0
+# 🗂️ EasySave - Version 2.0
 
 ## 📄 Description du livrable
 
@@ -8,7 +8,6 @@ EasySave est une application **console** développée avec **.NET Core** permett
 
 ## ✅ Fonctionnalités principales
 
-- Création jusqu’à **5 travaux de sauvegarde**
 - Un **travail de sauvegarde** est défini par :
   - Un nom de sauvegarde
   - Un répertoire source
@@ -44,7 +43,6 @@ Tous les fichiers et sous-dossiers doivent être sauvegardés.
   - Chemin complet du fichier de destination (format UNC)
   - Taille du fichier
   - Temps de transfert (ms) ou valeur négative en cas d’erreur
-- Exemple : `2020-12-17.json`
 
 > ⚠️ Fonctionnalité implémentée dans une **DLL** pour réutilisation dans d'autres projets. Elle doit rester **compatible avec la version 1.0**.
 
@@ -67,16 +65,5 @@ Tous les fichiers et sous-dossiers doivent être sauvegardés.
   - Taille restante
   - Fichier source en cours
   - Fichier de destination en cours
-
-- Exemple : `state.json`
-
-> ❌ Emplacements comme `C:\temp\` interdits (non compatibles avec les serveurs clients)  
-> ✅ Fichiers JSON avec retours à la ligne pour lisibilité dans Notepad  
-> ➕ Pagination appréciée
-
+ 
 ---
-
-## 🚀 Perspective d’évolution
-
-> Si la version 1.0 donne satisfaction, une **version 2.0** avec **interface graphique (architecture MVVM)** sera développée.
-

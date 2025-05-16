@@ -54,13 +54,6 @@ namespace V1Console_EasySave.View
         // Job creation process
         public void ShowJobCreation()
         {
-            if (_consoleViewModel.GetJobsNB() >= 5) // Limit of 5 jobs
-            {
-                Console.WriteLine(_consoleViewModel.T("JobLimitError"));
-                Console.ReadKey();
-                return;
-            }
-
             string input;
 
             // Set job name

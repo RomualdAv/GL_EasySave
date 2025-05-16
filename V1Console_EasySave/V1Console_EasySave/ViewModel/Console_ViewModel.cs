@@ -128,6 +128,7 @@ public class Console_ViewModel
     {
         _jobManager.ExecuteJob(job);
     }
+
     public void UpdateJob(JobDef job)
     {
         _jobManager.SaveJob(job);
@@ -140,4 +141,8 @@ public class Console_ViewModel
     
     }
     
+    public void ClearDailyLogs()
+    {
+        _jobManager.ClearAllDailyLogs();
+    }
 }

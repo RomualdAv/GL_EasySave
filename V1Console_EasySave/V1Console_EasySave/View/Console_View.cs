@@ -19,7 +19,8 @@ namespace V1Console_EasySave.View
                 Console.WriteLine($"3 - {_consoleViewModel.T("ChangeLanguage")}");
                 Console.WriteLine($"4 - {_consoleViewModel.T("UpdateJob")}");
                 Console.WriteLine($"5 - {_consoleViewModel.T("DeleteJob")}");
-                Console.WriteLine($"6 - {_consoleViewModel.T("Quit")}");
+                Console.WriteLine($"6 - {_consoleViewModel.T("ClearDailyLogs")}");
+                Console.WriteLine($"7 - {_consoleViewModel.T("Quit")}");
 
                 Console.Write(_consoleViewModel.T("ChooseOption"));
 
@@ -44,6 +45,9 @@ namespace V1Console_EasySave.View
                         DeleteJobConsole(); // Delete job
                         break;
                     case "6":
+                        ClearLogsPrompt();  // Clear daily logs
+                        break;
+                    case "7":
                         Environment.Exit(0); // Exit application
                         break;
 
@@ -174,7 +178,7 @@ namespace V1Console_EasySave.View
     }
 
     var job = jobs[index - 1];
-    string oldName = job.Name; // 🔑 Sauvegarder l'ancien nom
+    string oldName = job.Name; // Sauvegarder l'ancien nom
 
     Console.Write($"{_consoleViewModel.T("EnterNewName : ")} ({job.Name}): ");
     string newName = Console.ReadLine();
@@ -192,13 +196,13 @@ namespace V1Console_EasySave.View
     string typeStr = Console.ReadLine();
     if (int.TryParse(typeStr, out int newType)) job.JobType = newType;
 
-    // 🔥 Si le nom a changé, supprimer l'ancien fichier
+    // Si le nom a changé, supprimer l'ancien fichier
     if (oldName != job.Name)
     {
         _consoleViewModel.DeleteJob(oldName);
     }
 
-    // ✅ Sauvegarder les modifications
+    // Sauvegarder les modifications
     _consoleViewModel.UpdateJob(job);
 
     Console.WriteLine(_consoleViewModel.T("JobUpdatedSuccess"));
@@ -240,7 +244,20 @@ namespace V1Console_EasySave.View
         Console.ReadKey();
     }
 
-    // ... le reste de tes méthodes (ShowJobCreation, ShowSavedJobs, ShowJobChoice, ChangeLanguage)
-
+        public void ClearLogsPrompt()
+        {
+            Console.WriteLine(_consoleViewModel.T("ConfirmClearLogs"));
+            string input = Console.ReadLine()?.ToLower();
+            if (input == "y" || input == "yes" || input == "o" || input == "oui")
+            {
+                _consoleViewModel.ClearDailyLogs();
+                Console.WriteLine(_consoleViewModel.T("LogsCleared"));
+            }
+            else
+            {
+                Console.WriteLine(_consoleViewModel.T("Canceled"));
+            }
+            Console.ReadKey();
+        }
     }
 }

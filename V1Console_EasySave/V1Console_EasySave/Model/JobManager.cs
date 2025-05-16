@@ -1,6 +1,9 @@
 ﻿namespace V1Console_EasySave.Model;
+
+using System.Diagnostics;
 using System.Text.Json;
 using System.IO;
+using EasySave.Logging; //DLL DailyLogManager
 
 public class JobManager
 {
@@ -9,53 +12,38 @@ public class JobManager
     public void SaveJob(JobDef newJob)
     {
         if (!Directory.Exists(_jobDirectory))
-        {
             Directory.CreateDirectory(_jobDirectory);
-        }
 
         string fileName = Path.Combine(_jobDirectory, $"{newJob.Name}.json");
         string json = JsonSerializer.Serialize(newJob, new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText(fileName, json);
-
-        //Console.WriteLine($"Job '{newJob.Name}' saved in : {fileName}");
     }
 
     public int GetJobCount()
     {
         if (!Directory.Exists(_jobDirectory))
-        {
             return 0;
-        }
 
-        string[] files = Directory.GetFiles(_jobDirectory, "*.json");
-        return files.Length;
+        return Directory.GetFiles(_jobDirectory, "*.json").Length;
     }
 
     public List<JobDef> GetAllSavedJobs()
     {
-        List<JobDef> jobs = new List<JobDef>();
+        List<JobDef> jobs = new();
 
         if (!Directory.Exists(_jobDirectory))
             return jobs;
 
-        string[] files = Directory.GetFiles(_jobDirectory, "*.json");
-
-        foreach (var file in files)
+        foreach (var file in Directory.GetFiles(_jobDirectory, "*.json"))
         {
             try
             {
                 string json = File.ReadAllText(file);
-                JobDef job = JsonSerializer.Deserialize<JobDef>(json);
-
+                var job = JsonSerializer.Deserialize<JobDef>(json);
                 if (job != null)
-                {
                     jobs.Add(job);
-                }
             }
-            catch (Exception ex)
-            {
-                //Console.WriteLine($"Erreur lecture fichier {file} : {ex.Message}");
-            }
+            catch { /* Ignorer les erreurs de parsing */ }
         }
 
         return jobs;
@@ -87,17 +75,17 @@ public bool DeleteJob(string jobName)
     return false;
 }
 
-    
-   public void ExecuteJob(JobDef job)
+public void ExecuteJob(JobDef job)
     {
         if (!Directory.Exists(job.SourceDirectory))
-        {
             return;
-        }
 
-        string[] files = Directory.GetFiles(job.SourceDirectory, "*", SearchOption.AllDirectories);
+        var logDirectory = Path.Combine("..", "..", "..", "Logs");
+        var dailyLogManager = new DailyLogManager(logDirectory);
 
         var stateLogManager = new StateLogManager();
+
+        string[] files = Directory.GetFiles(job.SourceDirectory, "*", SearchOption.AllDirectories);
 
         int totalFiles = files.Length;
         long totalSize = files.Sum(f => new FileInfo(f).Length);
@@ -106,32 +94,42 @@ public bool DeleteJob(string jobName)
 
         foreach (var sourceFilePath in files)
         {
+            string relativePath = Path.GetRelativePath(job.SourceDirectory, sourceFilePath);
+            string targetFilePath = Path.Combine(job.TargetDirectory, relativePath);
+            string? targetDir = Path.GetDirectoryName(targetFilePath);
+
             try
             {
-                string relativePath = Path.GetRelativePath(job.SourceDirectory, sourceFilePath);
-                string targetFilePath = Path.Combine(job.TargetDirectory, relativePath);
-                string? targetDir = Path.GetDirectoryName(targetFilePath);
-
                 if (!Directory.Exists(targetDir))
-                {
                     Directory.CreateDirectory(targetDir);
-                }
 
-                if (job.JobType == 1 || !File.Exists(targetFilePath))
-                {
-                    File.Copy(sourceFilePath, targetFilePath, true);
-                    //Console.WriteLine($"{relativePath} done.");
-                }
-                else if (job.JobType == 2)
+                bool shouldCopy = job.JobType == 1 || !File.Exists(targetFilePath);
+
+                if (job.JobType == 2 && File.Exists(targetFilePath))
                 {
                     DateTime srcTime = File.GetLastWriteTime(sourceFilePath);
-                    DateTime dstTime = File.Exists(targetFilePath) ? File.GetLastWriteTime(targetFilePath) : DateTime.MinValue;
+                    DateTime dstTime = File.GetLastWriteTime(targetFilePath);
+                    shouldCopy = srcTime > dstTime;
+                }
 
-                    if (srcTime > dstTime)
+                if (shouldCopy)
+                {
+                    var stopwatch = Stopwatch.StartNew();
+
+                    File.Copy(sourceFilePath, targetFilePath, true);
+
+                    stopwatch.Stop();
+                    long fileSize = new FileInfo(sourceFilePath).Length;
+
+                    dailyLogManager.Log(new DailyLog
                     {
-                        File.Copy(sourceFilePath, targetFilePath, true);
-                        //Console.WriteLine($"{relativePath} done.");
-                    }
+                        Timestamp = DateTime.Now.ToString("s"),
+                        JobName = job.Name,
+                        SourceFilePath = Path.GetFullPath(sourceFilePath),
+                        TargetFilePath = Path.GetFullPath(targetFilePath),
+                        FileSize = fileSize,
+                        TransferTimeMs = stopwatch.ElapsedMilliseconds
+                    });
                 }
 
                 copiedFiles++;
@@ -151,11 +149,19 @@ public bool DeleteJob(string jobName)
             }
             catch (Exception ex)
             {
-                // Console.WriteLine($"Erreur copie fichier : {ex.Message}");
+                dailyLogManager.Log(new DailyLog
+                {
+                    Timestamp = DateTime.Now.ToString("s"),
+                    JobName = job.Name,
+                    SourceFilePath = Path.GetFullPath(sourceFilePath),
+                    TargetFilePath = Path.GetFullPath(targetFilePath),
+                    FileSize = 0,
+                    TransferTimeMs = -1
+                });
+                // Console.WriteLine($"Erreur : {ex.Message}");
             }
         }
 
-        // Met à jour l'état final
         stateLogManager.UpdateStateLog(new StateLog
         {
             JobName = job.Name,
@@ -168,4 +174,12 @@ public bool DeleteJob(string jobName)
             Progression = 100
         });
     }
+    
+    public void ClearAllDailyLogs()
+    {
+        var logDirectory = Path.Combine("..", "..", "..", "Logs");
+        var dailyLogManager = new DailyLogManager(logDirectory);
+        dailyLogManager.ClearLogs();
+    }
+
 }

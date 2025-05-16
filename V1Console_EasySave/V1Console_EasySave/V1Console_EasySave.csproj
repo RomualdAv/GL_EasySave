@@ -12,4 +12,10 @@
       <Folder Include="TargetTest\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="EasySave.DailyLogging">
+        <HintPath>..\..\EasySave.DailyLogging\EasySave.DailyLogging\bin\Debug\net9.0\EasySave.DailyLogging.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>

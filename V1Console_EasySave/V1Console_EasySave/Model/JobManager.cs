@@ -148,4 +148,12 @@ public class JobManager
             Progression = 100
         });
     }
+    
+    public void ClearAllDailyLogs()
+    {
+        var logDirectory = Path.Combine("..", "..", "..", "Logs");
+        var dailyLogManager = new DailyLogManager(logDirectory);
+        dailyLogManager.ClearLogs();
+    }
+
 }

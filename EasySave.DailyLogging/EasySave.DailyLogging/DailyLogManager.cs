@@ -37,4 +37,15 @@ public class DailyLogManager
 
         File.WriteAllText(fileName, json);
     }
+    
+    public void ClearLogs()
+    {
+        if (Directory.Exists(_logDirectory))
+        {
+            foreach (var file in Directory.GetFiles(_logDirectory, "*.json"))
+            {
+                File.Delete(file);
+            }
+        }
+    }
 }

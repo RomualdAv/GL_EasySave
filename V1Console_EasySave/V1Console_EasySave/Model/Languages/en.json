@@ -17,5 +17,9 @@
   "SelectedJobs": "Selected jobs:",
   "RunningJob": "Running job",
   "SavedJobsList": "SavedJobsList",
-  "JobsExecutionCompleted": "Job completed successfully!"
+  "JobsExecutionCompleted": "Job completed successfully!",
+  "ClearDailyLogs": "Clear daily logs",
+  "ConfirmClearLogs": "Are you sure you want to delete all daily logs? (y/n): ",
+  "LogsCleared": "All daily logs have been deleted.",
+  "Canceled": "Action canceled."
 }

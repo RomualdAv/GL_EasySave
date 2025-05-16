@@ -3,6 +3,9 @@
   "CreateJob": "Créer un job",
   "ExecuteJobs": "Exécuter un ou plusieurs jobs",
   "ChangeLanguage": "Changer la langue",
+  "UpdateJob": "Mettre à jour un job",
+  "JobUpdatedSuccess": "Job modifié avec succès !",
+  "DeleteJob": "Supprimer un job",
   "Quit": "Quitter",
   "ChooseOption": "Choisissez une option : ",
   "LanguageOptions": "Entrez la langue (ex: 'fr' ou 'en') : ",
@@ -21,5 +24,6 @@
   "ClearDailyLogs": "Supprimer les logs journaliers.",
   "ConfirmClearLogs": "Voulez vous supprimer les logs journaliers ? (y/n): ",
   "LogsCleared": "Les logs journaliers ont été supprimés.",
-  "Canceled": "Action annulée."
+  "Canceled": "Action annulée.",
+  "EnterJobNumberToUpdate": "Entrez le numéro du job à mettre à jour : "
 }

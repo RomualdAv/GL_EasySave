@@ -48,34 +48,20 @@ public class JobManager
 
         return jobs;
     }
-    public void UpdateJob(JobDef updatedJob)
-    {
-    string filePath = Path.Combine(_jobDirectory, $"{updatedJob.Name}.json");
 
-    // Supprimer l'ancien fichier s'il existe (optionnel, sauf si le nom a changé)
-    if (File.Exists(filePath))
+    public bool DeleteJob(string jobName)
     {
-        File.Delete(filePath);
+        string file = Path.Combine(_jobDirectory, $"{jobName}.json");
+
+        if (File.Exists(file))
+        {
+            File.Delete(file);
+            return true;
+        }
+        return false;
     }
 
-    // Sauvegarder la version mise à jour
-    SaveJob(updatedJob);
-    }
-
-
-public bool DeleteJob(string jobName)
-{
-    string file = Path.Combine(_jobDirectory, $"{jobName}.json");
-
-    if (File.Exists(file))
-    {
-        File.Delete(file);
-        return true;
-    }
-    return false;
-}
-
-public void ExecuteJob(JobDef job)
+    public void ExecuteJob(JobDef job)
     {
         if (!Directory.Exists(job.SourceDirectory))
             return;
@@ -181,5 +167,4 @@ public void ExecuteJob(JobDef job)
         var dailyLogManager = new DailyLogManager(logDirectory);
         dailyLogManager.ClearLogs();
     }
-
 }

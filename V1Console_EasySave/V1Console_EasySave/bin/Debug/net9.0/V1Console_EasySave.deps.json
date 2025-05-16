@@ -7,8 +7,19 @@
   "targets": {
     ".NETCoreApp,Version=v9.0": {
       "V1Console_EasySave/1.0.0": {
+        "dependencies": {
+          "EasySave.DailyLogging": "1.0.0.0"
+        },
         "runtime": {
           "V1Console_EasySave.dll": {}
+        }
+      },
+      "EasySave.DailyLogging/1.0.0.0": {
+        "runtime": {
+          "EasySave.DailyLogging.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
@@ -16,6 +27,11 @@
   "libraries": {
     "V1Console_EasySave/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EasySave.DailyLogging/1.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

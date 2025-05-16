@@ -3,6 +3,9 @@
   "CreateJob": "Create a job",
   "ExecuteJobs": "Execute one or more jobs",
   "ChangeLanguage": "Change language",
+  "UpdateJob": "Update a job",
+  "JobUpdatedSuccess": "Job updated successfully!",
+  "DeleteJob": "Delete a job",
   "Quit": "Quit",
   "ChooseOption": "Choose an option: ",
   "LanguageOptions": "Enter language (e.g., 'fr' or 'en'): ",
@@ -21,5 +24,6 @@
   "ClearDailyLogs": "Clear daily logs",
   "ConfirmClearLogs": "Are you sure you want to delete all daily logs? (y/n): ",
   "LogsCleared": "All daily logs have been deleted.",
-  "Canceled": "Action canceled."
+  "Canceled": "Action canceled.",
+    "EnterJobNumberToUpdate": "Enter the job number to update: "
 }

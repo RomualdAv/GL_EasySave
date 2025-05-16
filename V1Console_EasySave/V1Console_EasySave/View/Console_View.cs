@@ -17,7 +17,8 @@ namespace V1Console_EasySave.View
                 Console.WriteLine($"1 - {_consoleViewModel.T("CreateJob")}");
                 Console.WriteLine($"2 - {_consoleViewModel.T("ExecuteJobs")}");
                 Console.WriteLine($"3 - {_consoleViewModel.T("ChangeLanguage")}");
-                Console.WriteLine($"4 - {_consoleViewModel.T("Quit")}");
+                Console.WriteLine($"4 - {_consoleViewModel.T("ClearDailyLogs")}");
+                Console.WriteLine($"5 - {_consoleViewModel.T("Quit")}");
                 Console.Write(_consoleViewModel.T("ChooseOption"));
 
                 string choice = Console.ReadLine();
@@ -35,6 +36,9 @@ namespace V1Console_EasySave.View
                         ChangeLanguage();   // Change language
                         break;
                     case "4":
+                        ClearLogsPrompt();  // Clear daily logs
+                        break;
+                    case "5":
                         Environment.Exit(0); // Exit application
                         break;
                     default:
@@ -135,6 +139,22 @@ namespace V1Console_EasySave.View
             }
 
             Console.WriteLine(_consoleViewModel.T("JobsExecutionCompleted"));
+            Console.ReadKey();
+        }
+        
+        public void ClearLogsPrompt()
+        {
+            Console.WriteLine(_consoleViewModel.T("ConfirmClearLogs"));
+            string input = Console.ReadLine()?.ToLower();
+            if (input == "y" || input == "yes" || input == "o" || input == "oui")
+            {
+                _consoleViewModel.ClearDailyLogs();
+                Console.WriteLine(_consoleViewModel.T("LogsCleared"));
+            }
+            else
+            {
+                Console.WriteLine(_consoleViewModel.T("Canceled"));
+            }
             Console.ReadKey();
         }
     }

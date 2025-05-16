@@ -128,4 +128,10 @@ public class Console_ViewModel
     {
         _jobManager.ExecuteJob(job);
     }
+    
+    public void ClearDailyLogs()
+    {
+        _jobManager.ClearAllDailyLogs();
+    }
+
 }

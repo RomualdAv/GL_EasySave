@@ -17,5 +17,9 @@
   "SelectedJobs": "Jobs sélectionnés :",
   "RunningJob": "Lancement du job",
   "SavedJobsList": "Liste des jobs enregistrés :",
-  "JobsExecutionCompleted": "Job terminé avec succès !"
+  "JobsExecutionCompleted": "Job terminé avec succès !",
+  "ClearDailyLogs": "Supprimer les logs journaliers.",
+  "ConfirmClearLogs": "Voulez vous supprimer les logs journaliers ? (y/n): ",
+  "LogsCleared": "Les logs journaliers ont été supprimés.",
+  "Canceled": "Action annulée."
 }

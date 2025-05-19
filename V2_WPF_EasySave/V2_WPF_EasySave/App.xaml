@@ -1,8 +1,8 @@
-﻿<Application x:Class="EasySaveWPF.App"
+﻿<Application x:Class="EasySaveWPF.App" xmlns:local="clr-namespace:V2_WPF_EasySave.Utils"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-         
+        <local:IntToBoolConverter x:Key="IntToBoolConverter"/>
     </Application.Resources>
 </Application>

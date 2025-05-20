@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Text.Json;
 using System.Windows;
-using V2_WPF_EasySave.Model;
 
 namespace V2_WPF_EasySave.Model
 {
@@ -52,7 +50,59 @@ namespace V2_WPF_EasySave.Model
 
         public void ExecuteJob(JobDef job)
         {
-            MessageBox.Show($"Exécution du job lancé.", "Execution", MessageBoxButton.OK, MessageBoxImage.Information);
+            try
+            {
+                var source = job.SourceDirectory;
+                var target = job.TargetDirectory;
+
+                if (!Directory.Exists(source))
+                {
+                    MessageBox.Show("Dossier source introuvable.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                Directory.CreateDirectory(target); // Creer le dossier si il n’existe pas
+
+                var files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
+
+                foreach (var filePath in files)
+                {
+                    var relativePath = Path.GetRelativePath(source, filePath);
+                    var targetFilePath = Path.Combine(target, relativePath);
+
+                    // Creer les sous-dossiers dans le dossier de destination
+                    var targetDirectory = Path.GetDirectoryName(targetFilePath);
+                    if (targetDirectory != null && !Directory.Exists(targetDirectory))
+                    {
+                        Directory.CreateDirectory(targetDirectory);
+                    }
+
+                    bool shouldCopy = true;
+
+                    if (job.JobType == 2 && File.Exists(targetFilePath))
+                    {
+                        var sourceInfo = new FileInfo(filePath);
+                        var targetInfo = new FileInfo(targetFilePath);
+
+                        if (sourceInfo.Length == targetInfo.Length &&
+                            sourceInfo.LastWriteTime <= targetInfo.LastWriteTime)
+                        {
+                            shouldCopy = false;
+                        }
+                    }
+
+                    if (shouldCopy)
+                    {
+                        File.Copy(filePath, targetFilePath, true);
+                    }
+                }
+
+                MessageBox.Show($"Le job '{job.Name}' a été exécuté avec succès.", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de l'exécution du job : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

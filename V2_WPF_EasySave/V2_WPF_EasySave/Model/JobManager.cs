@@ -190,11 +190,6 @@ namespace V2_WPF_EasySave.Model
                 _observers.Add(observer);
         }
 
-        public void UnregisterObserver(IJobObserver observer)
-        {
-            _observers.Remove(observer);
-        }
-
         private void NotifyJobsChanged()
         {
             foreach (var observer in _observers)

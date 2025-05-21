@@ -10,9 +10,7 @@ using V2_WPF_EasySave.View;
 namespace V2_WPF_EasySave.ViewModel
 {
     public class MainViewModel : INotifyPropertyChanged, IJobObserver
-    {
-        private readonly string _jobDirectory = Path.Combine("..", "..", "..", "SavedJobs");
-
+    { 
         public ObservableCollection<JobDef> SavedJobs { get; set; } = new();
 
         private JobDef? _selectedJob;

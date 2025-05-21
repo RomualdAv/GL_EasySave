@@ -18,5 +18,55 @@
     "TotalFilesSize": 158985,
     "NbFilesLeftToDo": 0,
     "Progression": 100
+  },
+  {
+    "JobName": "TestCrypto",
+    "SourceFilePath": "",
+    "TargetFilePath": "",
+    "State": "END",
+    "TotalFilesToCopy": 2,
+    "TotalFilesSize": 158985,
+    "NbFilesLeftToDo": 0,
+    "Progression": 100
+  },
+  {
+    "JobName": "cryptage",
+    "SourceFilePath": "",
+    "TargetFilePath": "",
+    "State": "END",
+    "TotalFilesToCopy": 2,
+    "TotalFilesSize": 158989,
+    "NbFilesLeftToDo": 0,
+    "Progression": 100
+  },
+  {
+    "JobName": "111111111111111",
+    "SourceFilePath": "",
+    "TargetFilePath": "",
+    "State": "END",
+    "TotalFilesToCopy": 1,
+    "TotalFilesSize": 26,
+    "NbFilesLeftToDo": 0,
+    "Progression": 100
+  },
+  {
+    "JobName": "crypto",
+    "SourceFilePath": "",
+    "TargetFilePath": "",
+    "State": "END",
+    "TotalFilesToCopy": 1,
+    "TotalFilesSize": 10,
+    "NbFilesLeftToDo": 0,
+    "Progression": 100
+  },
+  {
+    "JobName": "test",
+    "SourceFilePath": "",
+    "TargetFilePath": "",
+    "State": "END",
+    "TotalFilesToCopy": 1,
+    "TotalFilesSize": 10,
+    "NbFilesLeftToDo": 0,
+    "Progression": 100
   }
 ]

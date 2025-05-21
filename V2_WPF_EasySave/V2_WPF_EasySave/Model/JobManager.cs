@@ -4,6 +4,8 @@ using System.Windows;
 using V2_WPF_EasySave.Utils;
 using EasySave.Logging;
 using System.Diagnostics;
+using System.Linq;
+
 
 namespace V2_WPF_EasySave.Model
 {
@@ -107,7 +109,18 @@ namespace V2_WPF_EasySave.Model
                         {
                             var stopwatch = Stopwatch.StartNew();
 
-                            File.Copy(sourceFilePath, targetFilePath, true);
+                            CryptoManager.EncryptFile(sourceFilePath, targetFilePath);
+
+
+                        
+                            string extension = Path.GetExtension(targetFilePath).ToLower();
+
+                            if (EncryptionSettings.ExtensionsToEncrypt.Contains(extension))
+                            {
+                                CryptoManager.EncryptFile(targetFilePath, EncryptionSettings.Key);
+                            }
+
+
 
                             stopwatch.Stop();
                             long fileSize = new FileInfo(sourceFilePath).Length;

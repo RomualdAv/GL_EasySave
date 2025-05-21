@@ -216,7 +216,6 @@ namespace V1Console_EasySave.View
             Console.ReadKey();
         }
 
-        // Ta méthode DeleteJobConsole
         public void DeleteJobConsole()
         {
             var jobs = _consoleViewModel.GetAllSavedJobs();

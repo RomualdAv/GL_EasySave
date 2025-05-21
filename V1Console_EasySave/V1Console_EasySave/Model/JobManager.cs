@@ -1,9 +1,11 @@
 ﻿namespace V1Console_EasySave.Model;
-
+using EasySave.Logging;
 using System.Diagnostics;
 using System.Text.Json;
 using System.IO;
-using EasySave.Logging; //DLL DailyLogManager
+
+
+ //DLL DailyLog  Manager
 
 public class JobManager
 {
@@ -61,13 +63,13 @@ public class JobManager
         return false;
     }
 
-    public void ExecuteJob(JobDef job)
+    public void ExecuteJob(JobDef job, string logFormat = "JSON")
     {
         if (!Directory.Exists(job.SourceDirectory))
             return;
 
         var logDirectory = Path.Combine("..", "..", "..", "Logs");
-        var dailyLogManager = new DailyLogManager(logDirectory);
+        var dailyLogManager = new DailyLogManager(logDirectory, logFormat);
 
         var stateLogManager = new StateLogManager();
 
@@ -106,6 +108,8 @@ public class JobManager
 
                     stopwatch.Stop();
                     long fileSize = new FileInfo(sourceFilePath).Length;
+
+                      Console.WriteLine($"Logging: Copied '{sourceFilePath}' to '{targetFilePath}' ({fileSize} bytes), took {stopwatch.ElapsedMilliseconds} ms.");
 
                     dailyLogManager.Log(new DailyLog
                     {

@@ -8,5 +8,15 @@
     "TotalFilesSize": 2087829300,
     "NbFilesLeftToDo": 0,
     "Progression": 100
+  },
+  {
+    "JobName": "zee",
+    "SourceFilePath": "",
+    "TargetFilePath": "",
+    "State": "END",
+    "TotalFilesToCopy": 1,
+    "TotalFilesSize": 158985,
+    "NbFilesLeftToDo": 0,
+    "Progression": 100
   }
 ]

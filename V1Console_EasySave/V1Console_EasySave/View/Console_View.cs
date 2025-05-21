@@ -21,6 +21,7 @@ namespace V1Console_EasySave.View
                 Console.WriteLine($"5 - {_consoleViewModel.T("DeleteJob")}");
                 Console.WriteLine($"6 - {_consoleViewModel.T("ClearDailyLogs")}");
                 Console.WriteLine($"7 - {_consoleViewModel.T("Quit")}");
+                Console.WriteLine($"8 - {_consoleViewModel.T("ChangeFormat")}");
 
                 Console.Write(_consoleViewModel.T("ChooseOption"));
 
@@ -50,6 +51,10 @@ namespace V1Console_EasySave.View
                     case "7":
                         Environment.Exit(0); // Exit application
                         break;
+                    case "8":
+                        ChangeLogFormat();
+                        break;
+
 
                     default:
                         continue; // Invalid input, loop again
@@ -145,13 +150,15 @@ namespace V1Console_EasySave.View
             foreach (int index in selectedIndexes)
             {
                 Console.WriteLine($"{_consoleViewModel.T("RunningJob")} {jobs[index].Name}...");
-                _consoleViewModel.ExecuteJobs(jobs[index]);
+                _consoleViewModel.ExecuteJobs(jobs[index], _consoleViewModel.GetLogFormat()); // Passer le format
             }
+
+
 
             Console.WriteLine(_consoleViewModel.T("JobsExecutionCompleted"));
             Console.ReadKey();
         }
-        
+
         public void UpdateJobConsole()
         {
             var jobs = _consoleViewModel.GetAllSavedJobs();
@@ -258,5 +265,30 @@ namespace V1Console_EasySave.View
             }
             Console.ReadKey();
         }
+
+        public void ChangeLogFormat()
+        {
+            Console.WriteLine("1 - JSON");
+            Console.WriteLine("2 - XML");
+            Console.Write("Choose format: ");
+            string input = Console.ReadLine();
+
+            if (input == "1")
+            {
+                _consoleViewModel.SetLogFormat("JSON");
+                Console.WriteLine("Log format set to JSON");
+            }
+            else if (input == "2")
+            {
+                _consoleViewModel.SetLogFormat("XML");
+                Console.WriteLine("Log format set to XML");
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice");
+            }
+            Console.ReadKey();
+        }
+
     }
 }

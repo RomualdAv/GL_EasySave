@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\PC\\Desktop\\projet GL\\projet\\GL_EasySave\\V1Console_EasySave\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CF72C6F7-1146-4268-ADDD-E78C255BDC73}|V1Console_EasySave\\V1Console_EasySave.csproj|c:\\users\\pc\\desktop\\projet gl\\projet\\gl_easysave\\v1console_easysave\\v1console_easysave\\model\\jobmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF72C6F7-1146-4268-ADDD-E78C255BDC73}|V1Console_EasySave\\V1Console_EasySave.csproj|solutionrelative:v1console_easysave\\model\\jobmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF72C6F7-1146-4268-ADDD-E78C255BDC73}|V1Console_EasySave\\V1Console_EasySave.csproj|c:\\users\\pc\\desktop\\projet gl\\projet\\gl_easysave\\v1console_easysave\\v1console_easysave\\model\\statelog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF72C6F7-1146-4268-ADDD-E78C255BDC73}|V1Console_EasySave\\V1Console_EasySave.csproj|solutionrelative:v1console_easysave\\model\\statelog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StateLog.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\projet GL\\projet\\GL_EasySave\\V1Console_EasySave\\V1Console_EasySave\\Model\\StateLog.cs",
+              "RelativeDocumentMoniker": "V1Console_EasySave\\Model\\StateLog.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\projet GL\\projet\\GL_EasySave\\V1Console_EasySave\\V1Console_EasySave\\Model\\StateLog.cs",
+              "RelativeToolTip": "V1Console_EasySave\\Model\\StateLog.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T10:04:11.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "JobManager.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\projet GL\\projet\\GL_EasySave\\V1Console_EasySave\\V1Console_EasySave\\Model\\JobManager.cs",
+              "RelativeDocumentMoniker": "V1Console_EasySave\\Model\\JobManager.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\projet GL\\projet\\GL_EasySave\\V1Console_EasySave\\V1Console_EasySave\\Model\\JobManager.cs",
+              "RelativeToolTip": "V1Console_EasySave\\Model\\JobManager.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAWwEUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T14:24:07.633Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

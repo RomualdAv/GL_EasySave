@@ -124,10 +124,13 @@ public class Console_ViewModel
     }
 
     // Execute a job
-    public void ExecuteJobs(JobDef job)
+    public void ExecuteJobs(JobDef job, string logFormat = "JSON")
     {
-        _jobManager.ExecuteJob(job);
+        var jobManager = new JobManager();
+        jobManager.ExecuteJob(job, logFormat);
     }
+
+
 
     public void UpdateJob(JobDef job)
     {
@@ -138,11 +141,27 @@ public class Console_ViewModel
     public void DeleteJob(string jobName)
     {
         _jobManager.DeleteJob(jobName);
-    
+
     }
-    
+
     public void ClearDailyLogs()
     {
         _jobManager.ClearAllDailyLogs();
     }
+    private string _logFormat = "JSON"; // Valeur par défaut
+
+    public void SetLogFormat(string format)
+    {
+        if (format == "JSON" || format == "XML")
+        {
+            _logFormat = format;
+        }
+    }
+
+
+    public string GetLogFormat()
+    {
+        return _logFormat;
+    }
+
 }

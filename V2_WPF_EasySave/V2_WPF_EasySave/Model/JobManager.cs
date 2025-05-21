@@ -54,64 +54,96 @@ namespace V2_WPF_EasySave.Model
             }
         }
 
-        public void ExecuteJob(JobDef job)
+    public void ExecuteJob(JobDef job)
+    {
+        try
         {
-            try
-            {
-                var source = job.SourceDirectory;
-                var target = job.TargetDirectory;
+            var source = job.SourceDirectory;
+            var target = job.TargetDirectory;
 
-                if (!Directory.Exists(source))
+            if (!Directory.Exists(source))
+            {
+                MessageBox.Show("Dossier source introuvable.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            var stateLogManager = new StateLogManager();
+
+            Directory.CreateDirectory(target);
+
+            var files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
+            int totalFiles = files.Length;
+            long totalSize = files.Sum(f => new FileInfo(f).Length);
+
+            int copiedFiles = 0;
+
+            foreach (var filePath in files)
+            {
+                var relativePath = Path.GetRelativePath(source, filePath);
+                var targetFilePath = Path.Combine(target, relativePath);
+
+                var targetDirectory = Path.GetDirectoryName(targetFilePath);
+                if (targetDirectory != null && !Directory.Exists(targetDirectory))
                 {
-                    MessageBox.Show("Dossier source introuvable.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
+                    Directory.CreateDirectory(targetDirectory);
                 }
 
-                Directory.CreateDirectory(target); // Creer le dossier si il n’existe pas
+                bool shouldCopy = true;
 
-                var files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
-
-                foreach (var filePath in files)
+                if (job.JobType == 2 && File.Exists(targetFilePath))
                 {
-                    var relativePath = Path.GetRelativePath(source, filePath);
-                    var targetFilePath = Path.Combine(target, relativePath);
+                    var sourceInfo = new FileInfo(filePath);
+                    var targetInfo = new FileInfo(targetFilePath);
 
-                    // Creer les sous-dossiers dans le dossier de destination
-                    var targetDirectory = Path.GetDirectoryName(targetFilePath);
-                    if (targetDirectory != null && !Directory.Exists(targetDirectory))
+                    if (sourceInfo.Length == targetInfo.Length &&
+                        sourceInfo.LastWriteTime <= targetInfo.LastWriteTime)
                     {
-                        Directory.CreateDirectory(targetDirectory);
+                        shouldCopy = false;
                     }
-
-                    bool shouldCopy = true;
-
-                    if (job.JobType == 2 && File.Exists(targetFilePath))
-                    {
-                        var sourceInfo = new FileInfo(filePath);
-                        var targetInfo = new FileInfo(targetFilePath);
-
-                        if (sourceInfo.Length == targetInfo.Length &&
-                            sourceInfo.LastWriteTime <= targetInfo.LastWriteTime)
-                        {
-                            shouldCopy = false;
-                        }
-                    }
-
-                    if (shouldCopy)
-                    {
-                        File.Copy(filePath, targetFilePath, true);
-                    }
-                    
-                    NotifyJobsChanged();
                 }
 
-                MessageBox.Show($"Le job '{job.Name}' a été exécuté avec succès.", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
+                if (shouldCopy)
+                {
+                    File.Copy(filePath, targetFilePath, true);
+                }
+
+                copiedFiles++;
+                
+                stateLogManager.UpdateStateLog(new StateLog
+                {
+                    JobName = job.Name,
+                    SourceFilePath = filePath,
+                    TargetFilePath = targetFilePath,
+                    State = "ACTIVE",
+                    TotalFilesToCopy = totalFiles,
+                    TotalFilesSize = totalSize,
+                    NbFilesLeftToDo = totalFiles - copiedFiles,
+                    Progression = (int)((double)copiedFiles / totalFiles * 100)
+                });
+
+                NotifyJobsChanged();
             }
-            catch (Exception ex)
+            
+            stateLogManager.UpdateStateLog(new StateLog
             {
-                MessageBox.Show($"Erreur lors de l'exécution du job : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+                JobName = job.Name,
+                SourceFilePath = "",
+                TargetFilePath = "",
+                State = "END",
+                TotalFilesToCopy = totalFiles,
+                TotalFilesSize = totalSize,
+                NbFilesLeftToDo = 0,
+                Progression = 100
+            });
+
+            MessageBox.Show($"Le job '{job.Name}' a été exécuté avec succès.", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Erreur lors de l'exécution du job : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+
         
         /* Observer pattern */
         public void RegisterObserver(IJobObserver observer)

@@ -9,7 +9,7 @@ using V2_WPF_EasySave.View;
 
 namespace V2_WPF_EasySave.ViewModel
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel : INotifyPropertyChanged, IJobObserver
     {
         private readonly string _jobDirectory = Path.Combine("..", "..", "..", "SavedJobs");
 
@@ -39,11 +39,14 @@ namespace V2_WPF_EasySave.ViewModel
 
         public MainViewModel()
         {
+            _jobManager.RegisterObserver(this);
+            
             RefreshCommand = new RelayCommand(_ => LoadSavedJobs());
             CreateCommand = new RelayCommand(_ => OpenJobEditor(null));
             ModifyCommand = new RelayCommand(_ => OpenJobEditor(SelectedJob), _ => CanModifyOrDelete);
             DeleteCommand = new RelayCommand(_ => DeleteSelectedJob(), _ => CanModifyOrDelete);
             ExecuteCommand = new RelayCommand(_ => ExecuteSelectedJob(), _ => CanModifyOrDelete);
+            
             LoadSavedJobs();
         }
 
@@ -66,7 +69,6 @@ namespace V2_WPF_EasySave.ViewModel
             if (editor.DialogResult == true)
             {
                 _jobManager.SaveJob(editorVM.CurrentJob);
-                LoadSavedJobs();
             }
         }
 
@@ -76,7 +78,6 @@ namespace V2_WPF_EasySave.ViewModel
             if (MessageBox.Show($"Supprimer le job '{SelectedJob.Name}' ?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 _jobManager.DeleteJob(SelectedJob.Name);
-                LoadSavedJobs();
             }
         }
 
@@ -86,6 +87,12 @@ namespace V2_WPF_EasySave.ViewModel
             {
                 _jobManager.ExecuteJob(SelectedJob);
             }
+        }
+
+        
+        public void OnJobsChanged()
+        {
+            LoadSavedJobs();
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

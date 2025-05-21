@@ -1,12 +1,14 @@
 ﻿using System.IO;
 using System.Text.Json;
 using System.Windows;
+using V2_WPF_EasySave.Utils;
 
 namespace V2_WPF_EasySave.Model
 {
     public class JobManager
     {
         private readonly string _jobDirectory = Path.Combine("..", "..", "..", "SavedJobs");
+        private readonly List<IJobObserver> _observers = new();
 
         public List<JobDef> GetAllSavedJobs()
         {
@@ -39,13 +41,17 @@ namespace V2_WPF_EasySave.Model
             string path = Path.Combine(_jobDirectory, job.Name + ".json");
             string json = JsonSerializer.Serialize(job, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(path, json);
+            NotifyJobsChanged();
         }
 
         public void DeleteJob(string jobName)
         {
             string path = Path.Combine(_jobDirectory, jobName + ".json");
             if (File.Exists(path))
+            {
                 File.Delete(path);
+                NotifyJobsChanged();
+            }
         }
 
         public void ExecuteJob(JobDef job)
@@ -95,6 +101,8 @@ namespace V2_WPF_EasySave.Model
                     {
                         File.Copy(filePath, targetFilePath, true);
                     }
+                    
+                    NotifyJobsChanged();
                 }
 
                 MessageBox.Show($"Le job '{job.Name}' a été exécuté avec succès.", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -104,5 +112,24 @@ namespace V2_WPF_EasySave.Model
                 MessageBox.Show($"Erreur lors de l'exécution du job : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        
+        /* Observer pattern */
+        public void RegisterObserver(IJobObserver observer)
+        {
+            if (!_observers.Contains(observer))
+                _observers.Add(observer);
+        }
+
+        public void UnregisterObserver(IJobObserver observer)
+        {
+            _observers.Remove(observer);
+        }
+
+        private void NotifyJobsChanged()
+        {
+            foreach (var observer in _observers)
+                observer.OnJobsChanged();
+        }
+        /*                       */
     }
 }

@@ -1,0 +1,17 @@
+﻿{
+  "Create": "Créer",
+  "Modify": "Modifier",
+  "Delete": "Supprimer",
+  "Execute": "Exécuter",
+  "Refresh": "Rafraîchir",
+  "SavedJobs": "Jobs enregistrés :",
+  "JobEditor": "Éditeur de Job",
+  "JobName": "Nom du job:",
+  "SourceDir": "Répertoire source:",
+  "TargetDir": "Répertoire cible:",
+  "JobType": "Type de job:",
+  "Full": "Complet",
+  "Differential": "Différentiel",
+  "Validate": "Valider",
+  "Cancel": "Annuler"
+}

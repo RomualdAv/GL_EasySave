@@ -1,0 +1,17 @@
+﻿{
+  "SavedJobs": "Saved jobs:",
+  "Create": "Create",
+  "Edit": "Edit",
+  "Delete": "Delete",
+  "Execute": "Execute",
+  "Refresh": "Refresh",
+  "JobEditor": "Job Editor",
+  "JobName": "Job name:",
+  "SourceDir": "Source directory:",
+  "TargetDir": "Target directory:",
+  "JobType": "Job type:",
+  "Full": "Full",
+  "Differential": "Differential",
+  "Validate": "Validate",
+  "Cancel": "Cancel"
+}

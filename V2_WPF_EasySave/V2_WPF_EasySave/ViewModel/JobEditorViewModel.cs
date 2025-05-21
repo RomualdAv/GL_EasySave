@@ -10,7 +10,6 @@ namespace V2_WPF_EasySave.ViewModel
     public class JobEditorViewModel : INotifyPropertyChanged
     {
         public JobDef CurrentJob { get; set; }
-
         public ICommand SaveCommand { get; }
         public ICommand CancelCommand { get; }
 

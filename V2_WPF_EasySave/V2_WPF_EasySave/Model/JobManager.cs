@@ -60,7 +60,7 @@ namespace V2_WPF_EasySave.Model
             var blockedAppManager = new BlockedAppManager();
             if (blockedAppManager.IsAnyBlockedAppRunning())
             {
-                MessageBox.Show("Un logiciel bloquant est en cours d'exécution. Veuillez le fermer avant de lancer le job.", "Exécution bloquée", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("A blocking software is running while you attempt to run a job.", "Execution blocked", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -71,7 +71,7 @@ namespace V2_WPF_EasySave.Model
 
                 if (!Directory.Exists(source))
                 {
-                    MessageBox.Show("Dossier source introuvable.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Source directory is missing.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 
@@ -173,11 +173,11 @@ namespace V2_WPF_EasySave.Model
                     Progression = 100
                 });
 
-                MessageBox.Show($"Le job '{job.Name}' a été exécuté avec succès.", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Job '{job.Name}' was executed successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors de l'exécution du job : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Error while executing job : {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

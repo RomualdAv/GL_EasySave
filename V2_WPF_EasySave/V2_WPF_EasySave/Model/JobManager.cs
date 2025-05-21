@@ -57,6 +57,13 @@ namespace V2_WPF_EasySave.Model
         }
         public void ExecuteJob(JobDef job)
         {
+            var blockedAppManager = new BlockedAppManager();
+            if (blockedAppManager.IsAnyBlockedAppRunning())
+            {
+                MessageBox.Show("Un logiciel bloquant est en cours d'exécution. Veuillez le fermer avant de lancer le job.", "Exécution bloquée", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             try
             {
                 var source = job.SourceDirectory;

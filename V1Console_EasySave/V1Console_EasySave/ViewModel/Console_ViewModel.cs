@@ -155,7 +155,6 @@ public class Console_ViewModel
         if (format == "JSON" || format == "XML")
         {
             _logFormat = format;
-            // Tu peux aussi sauvegarder ce choix dans un fichier de config si tu veux persister
         }
     }
 

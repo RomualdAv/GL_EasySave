@@ -1,6 +1,6 @@
 {
   "Name": "ATEST",
-  "SourceDirectory": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\Depot projet\\GL_EasySave\\V2_WPF_EasySave\\V2_WPF_EasySave\\SourceTest",
-  "TargetDirectory": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\Depot projet\\GL_EasySave\\V2_WPF_EasySave\\V2_WPF_EasySave\\TargetTest",
-  "JobType": 1
+  "SourceDirectory": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest",
+  "TargetDirectory": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest",
+  "JobType": 2
 }

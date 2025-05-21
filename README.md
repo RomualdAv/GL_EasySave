@@ -1,8 +1,7 @@
 # 🗂️ EasySave - Version 2.0
 
-## 📄 Description du livrable
-
-EasySave est une application **console** développée avec **.NET Core** permettant de gérer des travaux de sauvegarde. Il s'agit de la **version 1.0**.
+EasySave V1 est une application **console** développée avec **.NET Core** permettant de gérer des travaux de sauvegarde.
+EasySave V2 constitue la continuité du dévelopmement et implémente une interface graphique ainsi que de multiples ajustements et features.
 
 ---
 
@@ -16,9 +15,7 @@ EasySave est une application **console** développée avec **.NET Core** permett
     - Sauvegarde **complète**
     - Sauvegarde **différentielle**
 - Utilisation possible par des **utilisateurs francophones et anglophones**
-- Exécution d’un ou plusieurs travaux :
-  - Exemple 1 : `1-3` ➜ exécute les sauvegardes 1 à 3
-  - Exemple 2 : `1;3` ➜ exécute les sauvegardes 1 et 3
+- Exécution d’un ou plusieurs travaux
 
 ---
 
@@ -35,7 +32,7 @@ Tous les fichiers et sous-dossiers doivent être sauvegardés.
 ## 📝 Fichier log journalier
 
 - Écrit en **temps réel** toutes les actions (transferts, créations de répertoire…)
-- Format : **JSON**
+- Format : **JSON** ou **XML**
 - Informations requises :
   - Horodatage
   - Nom de la sauvegarde
@@ -51,7 +48,7 @@ Tous les fichiers et sous-dossiers doivent être sauvegardés.
 ## 📊 Fichier d’état en temps réel
 
 - Stocke l’avancement des sauvegardes en **temps réel**
-- Fichier unique au **format JSON**
+- Fichier unique au **format JSON** ou **XML**
 - Informations à enregistrer :
   - Nom du travail
   - Horodatage de la dernière action

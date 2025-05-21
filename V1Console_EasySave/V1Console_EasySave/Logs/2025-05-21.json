@@ -1,66 +1,10 @@
 [
   {
-    "Timestamp": "2025-05-21T15:16:40",
-    "JobName": "zee",
-    "SourceFilePath": "C:\\Users\\PC\\Desktop\\1\\PGE - Fiche de validation du sujet MT - 2024 V1.pdf",
-    "TargetFilePath": "C:\\Users\\PC\\Desktop\\2\\PGE - Fiche de validation du sujet MT - 2024 V1.pdf",
-    "FileSize": 158985,
-    "TransferTimeMs": 1
-  },
-  {
-    "Timestamp": "2025-05-21T16:10:03",
-    "JobName": "TestCrypto",
-    "SourceFilePath": "C:\\Users\\PC\\Desktop\\1\\PGE - Fiche de validation du sujet MT - 2024 V1.pdf",
-    "TargetFilePath": "C:\\Users\\PC\\Desktop\\2\\PGE - Fiche de validation du sujet MT - 2024 V1.pdf",
-    "FileSize": 158985,
-    "TransferTimeMs": 2
-  },
-  {
-    "Timestamp": "2025-05-21T16:10:03",
-    "JobName": "TestCrypto",
-    "SourceFilePath": "C:\\Users\\PC\\Desktop\\1\\test.txt",
-    "TargetFilePath": "C:\\Users\\PC\\Desktop\\2\\test.txt",
-    "FileSize": 0,
+    "Timestamp": "2025-05-21T14:59:58",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
     "TransferTimeMs": 0
-  },
-  {
-    "Timestamp": "2025-05-21T16:13:50",
-    "JobName": "cryptage",
-    "SourceFilePath": "C:\\Users\\PC\\Desktop\\2\\PGE - Fiche de validation du sujet MT - 2024 V1.pdf",
-    "TargetFilePath": "C:\\Users\\PC\\Desktop\\1\\PGE - Fiche de validation du sujet MT - 2024 V1.pdf",
-    "FileSize": 158985,
-    "TransferTimeMs": 1
-  },
-  {
-    "Timestamp": "2025-05-21T16:13:50",
-    "JobName": "cryptage",
-    "SourceFilePath": "C:\\Users\\PC\\Desktop\\2\\test.txt",
-    "TargetFilePath": "C:\\Users\\PC\\Desktop\\1\\test.txt",
-    "FileSize": 4,
-    "TransferTimeMs": 1
-  },
-  {
-    "Timestamp": "2025-05-21T16:19:10",
-    "JobName": "111111111111111",
-    "SourceFilePath": "C:\\Users\\PC\\Desktop\\test1\\1111.txt",
-    "TargetFilePath": "C:\\Users\\PC\\Desktop\\test 2\\1111.txt",
-    "FileSize": 26,
-    "TransferTimeMs": 1
-  },
-  {
-    "Timestamp": "2025-05-21T16:27:26",
-    "JobName": "crypto",
-    "SourceFilePath": "C:\\Users\\PC\\Desktop\\test1\\test.txt",
-    "TargetFilePath": "C:\\Users\\PC\\Desktop\\test 2\\test.txt",
-    "FileSize": 10,
-    "TransferTimeMs": 2
-  },
-  {
-    "Timestamp": "2025-05-21T16:32:10",
-    "JobName": "test",
-    "SourceFilePath": "C:\\Users\\PC\\Desktop\\test1\\test.txt",
-    "TargetFilePath": "C:\\Users\\PC\\Desktop\\test 2\\test.txt",
-    "FileSize": 10,
-    "TransferTimeMs": 1
   }
 ]

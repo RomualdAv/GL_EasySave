@@ -1,0 +1,24 @@
+﻿<Window x:Class="V2_WPF_EasySave.View.BlockedAppsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Logiciels bloquants" Height="300" Width="500"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Ajout du SelectedItem -->
+        <ListBox ItemsSource="{Binding BlockedApps}" 
+                 SelectedItem="{Binding SelectedApp}" 
+                 Grid.Row="0" Margin="0 0 0 10"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBox Width="200" Text="{Binding NewApp, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,10,0"/>
+            <Button Content="Ajouter" Width="70" Command="{Binding AddCommand}" Margin="0,0,10,0"/>
+            <Button Content="Supprimer" Width="80" Command="{Binding RemoveCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>

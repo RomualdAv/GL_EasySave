@@ -34,6 +34,7 @@ namespace V2_WPF_EasySave.ViewModel
         public ICommand ModifyCommand { get; }
         public ICommand DeleteCommand { get; }
         public ICommand ExecuteCommand { get; }
+        public ICommand EditBlockedAppsCommand { get; }
 
         private JobManager _jobManager = new();
 
@@ -46,6 +47,7 @@ namespace V2_WPF_EasySave.ViewModel
             ModifyCommand = new RelayCommand(_ => OpenJobEditor(SelectedJob), _ => CanModifyOrDelete);
             DeleteCommand = new RelayCommand(_ => DeleteSelectedJob(), _ => CanModifyOrDelete);
             ExecuteCommand = new RelayCommand(_ => ExecuteSelectedJob(), _ => CanModifyOrDelete);
+            EditBlockedAppsCommand = new RelayCommand(_ => OpenBlockedAppsEditor());
             
             LoadSavedJobs();
         }
@@ -89,6 +91,11 @@ namespace V2_WPF_EasySave.ViewModel
             }
         }
 
+        private void OpenBlockedAppsEditor()
+        {
+            var window = new BlockedAppsWindow();
+            window.ShowDialog();
+        }
         
         public void OnJobsChanged()
         {

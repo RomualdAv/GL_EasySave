@@ -55,12 +55,23 @@ namespace V2_WPF_EasySave.Model
                 NotifyJobsChanged();
             }
         }
+
+        public void ExecuteJobsInParallel(List<JobDef> jobs)
+        {
+            foreach (var job in jobs)
+            {
+                var thread = new Thread(() => ExecuteJob(job));
+                thread.Start();
+            }
+        }
+
         public void ExecuteJob(JobDef job)
         {
             var blockedAppManager = new BlockedAppManager();
             if (blockedAppManager.IsAnyBlockedAppRunning())
             {
-                MessageBox.Show("A blocking software is running while you attempt to run a job.", "Execution blocked", MessageBoxButton.OK, MessageBoxImage.Warning);
+                Application.Current.Dispatcher.Invoke(() =>
+                    MessageBox.Show("A blocking software is running while you attempt to run a job.", "Execution blocked", MessageBoxButton.OK, MessageBoxImage.Warning));
                 return;
             }
 
@@ -71,7 +82,8 @@ namespace V2_WPF_EasySave.Model
 
                 if (!Directory.Exists(source))
                 {
-                    MessageBox.Show("Source directory is missing.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Application.Current.Dispatcher.Invoke(() =>
+                        MessageBox.Show("Source directory is missing.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error));
                     return;
                 }
 
@@ -113,9 +125,9 @@ namespace V2_WPF_EasySave.Model
                         if (shouldCopy)
                         {
                             var stopwatch = Stopwatch.StartNew();
-                            
+
                             File.Copy(sourceFilePath, targetFilePath, true);
-                            
+
                             string extension = Path.GetExtension(sourceFilePath).ToLower();
                             if (EncryptionSettings.ExtensionsToEncrypt.Contains(extension))
                             {
@@ -151,7 +163,7 @@ namespace V2_WPF_EasySave.Model
                             Progression = (int)((double)copiedFiles / totalFiles * 100)
                         });
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         dailyLogManager.Log(new DailyLog
                         {
@@ -179,15 +191,16 @@ namespace V2_WPF_EasySave.Model
                     Progression = 100
                 });
 
-                MessageBox.Show($"Job '{job.Name}' was executed successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                Application.Current.Dispatcher.Invoke(() =>
+                    MessageBox.Show($"Job '{job.Name}' was executed successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information));
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error while executing job : {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Application.Current.Dispatcher.Invoke(() =>
+                    MessageBox.Show($"Error while executing job : {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error));
             }
         }
-        
-        /* Observer pattern */
+
         public void RegisterObserver(IJobObserver observer)
         {
             if (!_observers.Contains(observer))

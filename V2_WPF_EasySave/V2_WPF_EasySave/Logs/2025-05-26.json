@@ -46,5 +46,221 @@
     "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\jesaispas\\dansdossier.txt",
     "FileSize": 1597,
     "TransferTimeMs": 2
+  },
+  {
+    "Timestamp": "2025-05-26T14:50:27",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 0,
+    "TransferTimeMs": -1
+  },
+  {
+    "Timestamp": "2025-05-26T14:50:36",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 0
+  },
+  {
+    "Timestamp": "2025-05-26T14:55:08",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 1
+  },
+  {
+    "Timestamp": "2025-05-26T14:55:52",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 1
+  },
+  {
+    "Timestamp": "2025-05-26T14:55:52",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 0,
+    "TransferTimeMs": -1
+  },
+  {
+    "Timestamp": "2025-05-26T15:10:55",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 2
+  },
+  {
+    "Timestamp": "2025-05-26T15:10:55",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 2
+  },
+  {
+    "Timestamp": "2025-05-26T15:10:59",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 1
+  },
+  {
+    "Timestamp": "2025-05-26T15:10:59",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 0,
+    "TransferTimeMs": -1
+  },
+  {
+    "Timestamp": "2025-05-26T15:10:59",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 0
+  },
+  {
+    "Timestamp": "2025-05-26T15:20:31",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 0
+  },
+  {
+    "Timestamp": "2025-05-26T15:20:31",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 0,
+    "TransferTimeMs": -1
+  },
+  {
+    "Timestamp": "2025-05-26T15:20:31",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\jesaispas\\dansdossier.txt",
+    "FileSize": 0,
+    "TransferTimeMs": -1
+  },
+  {
+    "Timestamp": "2025-05-26T15:30:56",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 2
+  },
+  {
+    "Timestamp": "2025-05-26T15:30:56",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 0,
+    "TransferTimeMs": -1
+  },
+  {
+    "Timestamp": "2025-05-26T15:30:56",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\jesaispas\\dansdossier.txt",
+    "FileSize": 0,
+    "TransferTimeMs": -1
+  },
+  {
+    "Timestamp": "2025-05-26T15:30:56",
+    "JobName": "ATEST",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\jesaispas\\dansdossier.txt",
+    "FileSize": 0,
+    "TransferTimeMs": -1
+  },
+  {
+    "Timestamp": "2025-05-26T15:32:11",
+    "JobName": "ATEST1",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 2
+  },
+  {
+    "Timestamp": "2025-05-26T15:32:11",
+    "JobName": "ATEST1",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 1
+  },
+  {
+    "Timestamp": "2025-05-26T15:32:53",
+    "JobName": "ATEST1",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 1
+  },
+  {
+    "Timestamp": "2025-05-26T15:32:53",
+    "JobName": "ATEST1",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 0
+  },
+  {
+    "Timestamp": "2025-05-26T15:32:53",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\ghdkgheiughoeurg.txt",
+    "FileSize": 0,
+    "TransferTimeMs": -1
+  },
+  {
+    "Timestamp": "2025-05-26T15:32:53",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 1
+  },
+  {
+    "Timestamp": "2025-05-26T15:38:28",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 2
+  },
+  {
+    "Timestamp": "2025-05-26T15:38:28",
+    "JobName": "ATEST1",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 2
+  },
+  {
+    "Timestamp": "2025-05-26T15:38:28",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 0
+  },
+  {
+    "Timestamp": "2025-05-26T15:38:28",
+    "JobName": "ATEST1",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 0
   }
 ]

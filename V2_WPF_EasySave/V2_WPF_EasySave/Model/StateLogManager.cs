@@ -1,7 +1,4 @@
 ﻿using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 
 namespace V2_WPF_EasySave.Model;
@@ -9,60 +6,74 @@ namespace V2_WPF_EasySave.Model;
 public class StateLogManager
 {
     private readonly string _stateLogPath = Path.Combine("..", "..", "..", "Logs", "state.json");
+    
+    private static readonly object _lock = new();
 
     public StateLogManager()
     {
-        // Create directory if it doesn't exist
         var dir = Path.GetDirectoryName(_stateLogPath);
         if (!Directory.Exists(dir))
         {
-            Directory.CreateDirectory(dir);
+            Directory.CreateDirectory(dir!);
         }
     }
 
-    // Update the state of a specific job in the list
+    /// <summary>
+    /// Met à jour ou ajoute l'état d'un job de sauvegarde dans state.json
+    /// </summary>
     public void UpdateStateLog(StateLog newEntry)
     {
-        List<StateLog> entries = new List<StateLog>();
-
-        if (File.Exists(_stateLogPath))
+        lock (_lock)
         {
-            string existingJson = File.ReadAllText(_stateLogPath);
-            if (!string.IsNullOrWhiteSpace(existingJson))
+            List<StateLog> entries = new();
+
+            try
             {
-                try
+                if (File.Exists(_stateLogPath))
                 {
-                    entries = JsonSerializer.Deserialize<List<StateLog>>(existingJson)
-                              ?? new List<StateLog>();
-                }
-                catch
-                {
-                    entries = new List<StateLog>();
+                    string existingJson = File.ReadAllText(_stateLogPath);
+                    if (!string.IsNullOrWhiteSpace(existingJson))
+                    {
+                        entries = JsonSerializer.Deserialize<List<StateLog>>(existingJson) ?? new();
+                    }
                 }
             }
-        }
+            catch (Exception ex)
+            {
+                // Console.WriteLine($"Erreur de lecture JSON: {ex.Message}");
+                entries = new();
+            }
+            
+            int index = entries.FindIndex(e => e.JobName == newEntry.JobName);
+            if (index >= 0)
+            {
+                entries[index] = newEntry;
+            }
+            else
+            {
+                entries.Add(newEntry);
+            }
+            
+            string updatedJson = JsonSerializer.Serialize(entries, new JsonSerializerOptions
+            {
+                WriteIndented = true
+            });
 
-        // Replace existing entry for this job if it exists
-        int existingIndex = entries.FindIndex(e => e.JobName == newEntry.JobName);
-        if (existingIndex >= 0)
-        {
-            entries[existingIndex] = newEntry;
+            File.WriteAllText(_stateLogPath, updatedJson);
         }
-        else
-        {
-            entries.Add(newEntry);
-        }
-
-        string updatedJson = JsonSerializer.Serialize(entries, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText(_stateLogPath, updatedJson);
     }
 
-    // Clear all job states
+    /// <summary>
+    /// Supprime le fichier state.json
+    /// </summary>
     public void ClearStateLog()
     {
-        if (File.Exists(_stateLogPath))
+        lock (_lock)
         {
-            File.Delete(_stateLogPath);
+            if (File.Exists(_stateLogPath))
+            {
+                File.Delete(_stateLogPath);
+            }
         }
     }
 }

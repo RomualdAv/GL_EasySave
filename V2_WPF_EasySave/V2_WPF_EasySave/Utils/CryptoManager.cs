@@ -5,8 +5,10 @@ namespace V2_WPF_EasySave.Utils
 {
     public static class CryptoManager
     {
-        public static void EncryptFile(string filePath, string key)
+        public static void EncryptFile(string inputFilePath, string outputFilePath, string key)
         {
+            var tempPath = Path.GetTempFileName(); // chiffre dans un fichier temporaire
+
             var exePath = Path.Combine("..", "..", "..", "CryptoSoft", "cryptosoft.exe");
 
             if (!File.Exists(exePath))
@@ -20,7 +22,7 @@ namespace V2_WPF_EasySave.Utils
                 StartInfo = new ProcessStartInfo
                 {
                     FileName = exePath,
-                    Arguments = $"\"{filePath}\" {key}",
+                    Arguments = $"\"{inputFilePath}\" {key}",
                     RedirectStandardOutput = true,
                     UseShellExecute = false,
                     CreateNoWindow = true
@@ -31,10 +33,11 @@ namespace V2_WPF_EasySave.Utils
             string output = process.StandardOutput.ReadToEnd();
             process.WaitForExit();
 
+            // Copie le fichier chiffré
+            if (File.Exists(inputFilePath))
+                File.Move(inputFilePath, outputFilePath, true);
+
             Debug.WriteLine($"CryptoSoft sortie : {output}");
         }
-        Debug.WriteLine($"Fichier chiffré : {sourcePath}");
-
     }
-    
 }

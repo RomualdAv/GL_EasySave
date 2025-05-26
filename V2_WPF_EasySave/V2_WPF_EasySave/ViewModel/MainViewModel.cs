@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using V2_WPF_EasySave.Model;
@@ -10,22 +10,11 @@ using V2_WPF_EasySave.View;
 namespace V2_WPF_EasySave.ViewModel
 {
     public class MainViewModel : INotifyPropertyChanged, IJobObserver
-    { 
+    {
         public ObservableCollection<JobDef> SavedJobs { get; set; } = new();
+        public ObservableCollection<JobDef> SelectedJobs { get; set; } = new();
 
-        private JobDef? _selectedJob;
-        public JobDef? SelectedJob
-        {
-            get => _selectedJob;
-            set
-            {
-                _selectedJob = value;
-                OnPropertyChanged(nameof(SelectedJob));
-                OnPropertyChanged(nameof(CanModifyOrDelete));
-            }
-        }
-
-        public bool CanModifyOrDelete => SelectedJob != null;
+        public bool CanModifyOrDelete => SelectedJobs.Any();
 
         public ICommand RefreshCommand { get; }
         public ICommand CreateCommand { get; }
@@ -39,26 +28,45 @@ namespace V2_WPF_EasySave.ViewModel
         public MainViewModel()
         {
             _jobManager.RegisterObserver(this);
-            
+
+            SelectedJobs.CollectionChanged += (_, __) =>
+            {
+                OnPropertyChanged(nameof(CanModifyOrDelete));
+            };
+
             RefreshCommand = new RelayCommand(_ => LoadSavedJobs());
             CreateCommand = new RelayCommand(_ => OpenJobEditor(null));
-            ModifyCommand = new RelayCommand(_ => OpenJobEditor(SelectedJob), _ => CanModifyOrDelete);
-            DeleteCommand = new RelayCommand(_ => DeleteSelectedJob(), _ => CanModifyOrDelete);
-            ExecuteCommand = new RelayCommand(_ => ExecuteSelectedJob(), _ => CanModifyOrDelete);
+            ModifyCommand = new RelayCommand(_ => OpenJobEditor(SelectedJobs.First()), _ => CanModifyOrDelete && SelectedJobs.Count == 1);
+            DeleteCommand = new RelayCommand(_ => DeleteSelectedJobs(), _ => CanModifyOrDelete);
+            ExecuteCommand = new RelayCommand(_ => ExecuteSelectedJobs(), _ => CanModifyOrDelete);
             EditBlockedAppsCommand = new RelayCommand(_ => OpenBlockedAppsEditor());
-            
+
             LoadSavedJobs();
         }
 
         public void LoadSavedJobs()
         {
-            SavedJobs.Clear();
-            var jobs = _jobManager.GetAllSavedJobs();
-            foreach (var job in jobs)
-                SavedJobs.Add(job);
-            SelectedJob = null;
-        }
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                SavedJobs.Clear();
 
+                foreach (var job in _jobManager.GetAllSavedJobs())
+                    SavedJobs.Add(job);
+
+                SelectedJobs.Clear();
+            });
+        }
+        
+        public void UpdateSelectedJobs(IEnumerable<object> selectedItems)
+        {
+            SelectedJobs.Clear();
+
+            foreach (var item in selectedItems.OfType<JobDef>())
+            {
+                SelectedJobs.Add(item);
+            }
+        }
+        
         private void OpenJobEditor(JobDef? jobToEdit)
         {
             var editor = new JobEditorWindow();
@@ -66,26 +74,30 @@ namespace V2_WPF_EasySave.ViewModel
             editor.DataContext = editorVM;
             editorVM.CloseRequested += (s, saved) => editor.DialogResult = saved;
             editor.ShowDialog();
+
             if (editor.DialogResult == true)
-            {
                 _jobManager.SaveJob(editorVM.CurrentJob);
+        }
+
+        private void DeleteSelectedJobs()
+        {
+            if (SelectedJobs.Count == 0) return;
+
+            var names = string.Join(", ", SelectedJobs.Select(j => $"'{j.Name}'"));
+            var result = MessageBox.Show($"Supprimer les jobs {names} ?", "Confirmation", MessageBoxButton.YesNo);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                foreach (var job in SelectedJobs.ToList())
+                    _jobManager.DeleteJob(job.Name);
             }
         }
 
-        private void DeleteSelectedJob()
+        private void ExecuteSelectedJobs()
         {
-            if (SelectedJob == null) return;
-            if (MessageBox.Show($"Supprimer le job '{SelectedJob.Name}' ?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (SelectedJobs.Count > 0)
             {
-                _jobManager.DeleteJob(SelectedJob.Name);
-            }
-        }
-
-        private void ExecuteSelectedJob()
-        {
-            if (SelectedJob != null)
-            {
-                _jobManager.ExecuteJob(SelectedJob);
+                _jobManager.ExecuteJobsInParallel(SelectedJobs.ToList());
             }
         }
 
@@ -94,13 +106,11 @@ namespace V2_WPF_EasySave.ViewModel
             var window = new BlockedAppsWindow();
             window.ShowDialog();
         }
-        
-        public void OnJobsChanged()
-        {
-            LoadSavedJobs();
-        }
+
+        public void OnJobsChanged() => LoadSavedJobs();
 
         public event PropertyChangedEventHandler? PropertyChanged;
-        protected void OnPropertyChanged(string name) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        protected void OnPropertyChanged(string name) =>
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }

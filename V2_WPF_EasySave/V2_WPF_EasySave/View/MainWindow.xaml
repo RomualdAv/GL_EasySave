@@ -13,12 +13,13 @@
         <StackPanel>
             <TextBlock Text="{utils:Translate SavedJobs}" FontSize="20" Margin="0 0 0 10" />
 
-            <ListBox ItemsSource="{Binding SavedJobs}"
-                     SelectedItem="{Binding SelectedJob}"
+            <ListBox x:Name="JobsListBox"
+                     ItemsSource="{Binding SavedJobs}"
                      DisplayMemberPath="Name"
-                     FontSize="16"
-                     Height="200" />
-
+                     SelectionMode="Extended"
+                     Margin="10"
+                     SelectionChanged="JobsListBox_SelectionChanged"/>
+            
             <StackPanel Orientation="Horizontal" Margin="0 10 0 0" HorizontalAlignment="Center">
                 <Button Content="{utils:Translate Create}" Command="{Binding CreateCommand}" Width="80" />
                 <Button Content="{utils:Translate Edit}" Command="{Binding ModifyCommand}" Width="80" />

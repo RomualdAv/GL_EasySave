@@ -8,5 +8,25 @@
     "TotalFilesSize": 3194,
     "NbFilesLeftToDo": 0,
     "Progression": 100
+  },
+  {
+    "JobName": "ATEST1",
+    "SourceFilePath": "",
+    "TargetFilePath": "",
+    "State": "END",
+    "TotalFilesToCopy": 2,
+    "TotalFilesSize": 3194,
+    "NbFilesLeftToDo": 0,
+    "Progression": 100
+  },
+  {
+    "JobName": "ATEST2",
+    "SourceFilePath": "",
+    "TargetFilePath": "",
+    "State": "END",
+    "TotalFilesToCopy": 2,
+    "TotalFilesSize": 3194,
+    "NbFilesLeftToDo": 0,
+    "Progression": 100
   }
 ]

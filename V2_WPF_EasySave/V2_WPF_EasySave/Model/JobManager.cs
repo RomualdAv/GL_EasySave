@@ -4,8 +4,6 @@ using System.Windows;
 using V2_WPF_EasySave.Utils;
 using EasySave.Logging;
 using System.Diagnostics;
-using System.Linq;
-
 
 namespace V2_WPF_EasySave.Model
 {
@@ -76,7 +74,7 @@ namespace V2_WPF_EasySave.Model
                     MessageBox.Show("Source directory is missing.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                
+
                 var logDirectory = Path.Combine("..", "..", "..", "Logs");
                 if (!Directory.Exists(logDirectory))
                     Directory.CreateDirectory(logDirectory);
@@ -115,23 +113,18 @@ namespace V2_WPF_EasySave.Model
                         if (shouldCopy)
                         {
                             var stopwatch = Stopwatch.StartNew();
-
-                            CryptoManager.EncryptFile(sourceFilePath, targetFilePath);
-
-
-                        
-                            string extension = Path.GetExtension(targetFilePath).ToLower();
-
+                            
+                            File.Copy(sourceFilePath, targetFilePath, true);
+                            
+                            string extension = Path.GetExtension(sourceFilePath).ToLower();
                             if (EncryptionSettings.ExtensionsToEncrypt.Contains(extension))
                             {
-                                CryptoManager.EncryptFile(targetFilePath, EncryptionSettings.Key);
+                                CryptoManager.EncryptFile(sourceFilePath, targetFilePath, EncryptionSettings.Key);
                             }
-
-
 
                             stopwatch.Stop();
                             long fileSize = new FileInfo(sourceFilePath).Length;
-                            
+
                             dailyLogManager.Log(new DailyLog
                             {
                                 Timestamp = DateTime.Now.ToString("s"),
@@ -141,11 +134,11 @@ namespace V2_WPF_EasySave.Model
                                 FileSize = fileSize,
                                 TransferTimeMs = stopwatch.ElapsedMilliseconds
                             });
+
+                            copiedFiles++;
+                            copiedSize += fileSize;
                         }
 
-                        copiedFiles++;
-                        copiedSize += new FileInfo(sourceFilePath).Length;
-                        
                         stateLogManager.UpdateStateLog(new StateLog
                         {
                             JobName = job.Name,
@@ -173,7 +166,7 @@ namespace V2_WPF_EasySave.Model
 
                     NotifyJobsChanged();
                 }
-                
+
                 stateLogManager.UpdateStateLog(new StateLog
                 {
                     JobName = job.Name,
@@ -193,8 +186,6 @@ namespace V2_WPF_EasySave.Model
                 MessageBox.Show($"Error while executing job : {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-
         
         /* Observer pattern */
         public void RegisterObserver(IJobObserver observer)

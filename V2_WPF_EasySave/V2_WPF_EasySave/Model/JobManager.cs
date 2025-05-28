@@ -104,6 +104,20 @@ namespace V2_WPF_EasySave.Model
 
                 foreach (var sourceFilePath in files)
                 {
+                    foreach (var sourceFilePath in files)
+                    {
+                        if (job.StopRequested)
+                        {
+                            job.State = "ARRETE";
+                            break;
+                        }
+
+                        job.PauseEvent.WaitOne();
+                        job.State = "ACTIVE";
+
+                    }
+
+
                     string relativePath = Path.GetRelativePath(source, sourceFilePath);
                     string targetFilePath = Path.Combine(target, relativePath);
                     string? targetDir = Path.GetDirectoryName(targetFilePath);
@@ -179,6 +193,12 @@ namespace V2_WPF_EasySave.Model
                     NotifyJobsChanged();
                 }
 
+                if (!job.StopRequested)
+                {
+                    job.State = "TERMINE";
+                }
+
+
                 stateLogManager.UpdateStateLog(new StateLog
                 {
                     JobName = job.Name,
@@ -212,5 +232,26 @@ namespace V2_WPF_EasySave.Model
             foreach (var observer in _observers)
                 observer.OnJobsChanged();
         }
+
+        public void PauseJob(JobDef job)
+        {
+            job.State = "EN_PAUSE";
+            job.PauseEvent.Reset(); // Met en pause le thread
+        }
+
+        public void ResumeJob(JobDef job)
+        {
+            job.State = "ACTIVE";
+            job.PauseEvent.Set(); // Relance l'exécution
+        }
+
+        public void StopJob(JobDef job)
+        {
+            job.StopRequested = true;
+            job.PauseEvent.Set(); // Débloque si le job était en pause
+        }
+
+
+
     }
 }

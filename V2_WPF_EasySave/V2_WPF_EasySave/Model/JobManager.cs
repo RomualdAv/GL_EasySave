@@ -68,6 +68,8 @@ namespace V2_WPF_EasySave.Model
 
         public void ExecuteJob(JobDef job)
         {
+            var priorityExtensions = PriorityExtensions.Load().Extensions.Select(ext => ext.ToLower()).ToHashSet();
+
             var blockedAppManager = new BlockedAppManager();
             if (blockedAppManager.IsAnyBlockedAppRunning())
             {
@@ -99,73 +101,70 @@ namespace V2_WPF_EasySave.Model
                 Directory.CreateDirectory(target);
 
                 var files = Directory.GetFiles(source, "*", SearchOption.AllDirectories);
+
+                // Separe les fichiers prioritaires et non prioritaires
+                var priorityFiles = files.Where(f => priorityExtensions.Contains(Path.GetExtension(f).ToLower())).ToList();
+                var nonPriorityFiles = files.Except(priorityFiles).ToList();
+
                 int totalFiles = files.Length;
                 long totalSize = files.Sum(f => new FileInfo(f).Length);
                 int copiedFiles = 0;
                 long copiedSize = 0;
-
-                foreach (var sourceFilePath in files)
+                
+                void CopyFile(string sourceFilePath)
                 {
                     string relativePath = Path.GetRelativePath(source, sourceFilePath);
                     string targetFilePath = Path.Combine(target, relativePath);
                     string? targetDir = Path.GetDirectoryName(targetFilePath);
 
-                    try
+                    if (!Directory.Exists(targetDir))
+                        Directory.CreateDirectory(targetDir);
+
+                    bool shouldCopy = job.JobType == 1 || !File.Exists(targetFilePath);
+
+                    if (job.JobType == 2 && File.Exists(targetFilePath))
                     {
-                        if (!Directory.Exists(targetDir))
-                            Directory.CreateDirectory(targetDir);
+                        DateTime srcTime = File.GetLastWriteTime(sourceFilePath);
+                        DateTime dstTime = File.GetLastWriteTime(targetFilePath);
+                        shouldCopy = srcTime > dstTime;
+                    }
 
-                        bool shouldCopy = job.JobType == 1 || !File.Exists(targetFilePath);
+                    if (shouldCopy)
+                    {
+                        long fileSize = new FileInfo(sourceFilePath).Length;
+                        long fileSizeKB = fileSize / 1024;
+                        var stopwatch = Stopwatch.StartNew();
 
-                        if (job.JobType == 2 && File.Exists(targetFilePath))
+                        if (fileSizeKB > sizeLimit.MaxParallelFileSizeKB)
                         {
-                            DateTime srcTime = File.GetLastWriteTime(sourceFilePath);
-                            DateTime dstTime = File.GetLastWriteTime(targetFilePath);
-                            shouldCopy = srcTime > dstTime;
-                        }
-
-                        if (shouldCopy)
-                        {
-                            long fileSize = new FileInfo(sourceFilePath).Length;
-                            long fileSizeKB = fileSize / 1024;
-                            var stopwatch = Stopwatch.StartNew();
-
-                            // 🔒 Contrôle d'accès concurrent pour fichiers > n Ko
-                            if (fileSizeKB > sizeLimit.MaxParallelFileSizeKB)
-                            {
-                                lock (largeFileLock)
-                                {
-                                    File.Copy(sourceFilePath, targetFilePath, true);
-                                    if (EncryptionSettings.ExtensionsToEncrypt.Contains(Path.GetExtension(sourceFilePath).ToLower()))
-                                    {
-                                        CryptoManager.EncryptFile(sourceFilePath, targetFilePath, EncryptionSettings.Key);
-                                    }
-                                }
-                            }
-                            else
+                            lock (largeFileLock)
                             {
                                 File.Copy(sourceFilePath, targetFilePath, true);
                                 if (EncryptionSettings.ExtensionsToEncrypt.Contains(Path.GetExtension(sourceFilePath).ToLower()))
-                                {
                                     CryptoManager.EncryptFile(sourceFilePath, targetFilePath, EncryptionSettings.Key);
-                                }
                             }
-
-                            stopwatch.Stop();
-
-                            dailyLogManager.Log(new DailyLog
-                            {
-                                Timestamp = DateTime.Now.ToString("s"),
-                                JobName = job.Name,
-                                SourceFilePath = Path.GetFullPath(sourceFilePath),
-                                TargetFilePath = Path.GetFullPath(targetFilePath),
-                                FileSize = fileSize,
-                                TransferTimeMs = stopwatch.ElapsedMilliseconds
-                            });
-
-                            copiedFiles++;
-                            copiedSize += fileSize;
                         }
+                        else
+                        {
+                            File.Copy(sourceFilePath, targetFilePath, true);
+                            if (EncryptionSettings.ExtensionsToEncrypt.Contains(Path.GetExtension(sourceFilePath).ToLower()))
+                                CryptoManager.EncryptFile(sourceFilePath, targetFilePath, EncryptionSettings.Key);
+                        }
+
+                        stopwatch.Stop();
+
+                        dailyLogManager.Log(new DailyLog
+                        {
+                            Timestamp = DateTime.Now.ToString("s"),
+                            JobName = job.Name,
+                            SourceFilePath = Path.GetFullPath(sourceFilePath),
+                            TargetFilePath = Path.GetFullPath(targetFilePath),
+                            FileSize = fileSize,
+                            TransferTimeMs = stopwatch.ElapsedMilliseconds
+                        });
+
+                        copiedFiles++;
+                        copiedSize += fileSize;
 
                         stateLogManager.UpdateStateLog(new StateLog
                         {
@@ -179,22 +178,34 @@ namespace V2_WPF_EasySave.Model
                             Progression = (int)((double)copiedFiles / totalFiles * 100)
                         });
                     }
+                }
+                
+                foreach (var file in priorityFiles)
+                {
+                    try
+                    {
+                        CopyFile(file);
+                    }
                     catch (Exception)
                     {
-                        dailyLogManager.Log(new DailyLog
-                        {
-                            Timestamp = DateTime.Now.ToString("s"),
-                            JobName = job.Name,
-                            SourceFilePath = Path.GetFullPath(sourceFilePath),
-                            TargetFilePath = Path.GetFullPath(targetFilePath),
-                            FileSize = 0,
-                            TransferTimeMs = -1
-                        });
+                        // erreur
                     }
-
                     NotifyJobsChanged();
                 }
-
+                
+                foreach (var file in nonPriorityFiles)
+                {
+                    try
+                    {
+                        CopyFile(file);
+                    }
+                    catch (Exception)
+                    {
+                        // erreur
+                    }
+                    NotifyJobsChanged();
+                }
+                
                 stateLogManager.UpdateStateLog(new StateLog
                 {
                     JobName = job.Name,
@@ -216,6 +227,7 @@ namespace V2_WPF_EasySave.Model
                     MessageBox.Show($"Error while executing job : {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error));
             }
         }
+
 
         public void RegisterObserver(IJobObserver observer)
         {

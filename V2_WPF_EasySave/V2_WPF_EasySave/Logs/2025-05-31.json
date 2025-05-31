@@ -246,5 +246,45 @@
     "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons.mp4",
     "FileSize": 1670075831,
     "TransferTimeMs": 33139
+  },
+  {
+    "Timestamp": "2025-05-31T10:09:03",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 2
+  },
+  {
+    "Timestamp": "2025-05-31T10:09:39",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 2
+  },
+  {
+    "Timestamp": "2025-05-31T10:10:02",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie (2) - Copie.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie (2) - Copie.mp4",
+    "FileSize": 1670075831,
+    "TransferTimeMs": 22158
+  },
+  {
+    "Timestamp": "2025-05-31T10:23:23",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 1
+  },
+  {
+    "Timestamp": "2025-05-31T10:23:44",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie (2) - Copie.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie (2) - Copie.mp4",
+    "FileSize": 1670075831,
+    "TransferTimeMs": 20371
   }
 ]

@@ -27,6 +27,7 @@
                 <Button Content="{utils:Translate Execute}" Command="{Binding ExecuteCommand}" Width="80" />
                 <Button Content="Softwares" Command="{Binding EditBlockedAppsCommand}" Width="80" />
                 <Button Content="Size Limit" Command="{Binding EditSizeLimitCommand}" Width="80" />
+                <Button Content="Extensions" Command="{Binding EditPriorityExtensionsCommand}" Width="80" />
             </StackPanel>
 
             <ComboBox SelectedValue="{Binding Source={x:Static utils:LanguageManager.Instance}, Path=CurrentLanguage}"

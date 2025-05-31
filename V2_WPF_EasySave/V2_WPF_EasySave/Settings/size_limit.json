@@ -1,3 +1,3 @@
 {
-  "MaxParallelFileSizeKB": 10000
+  "MaxParallelFileSizeKB": 100000000
 }

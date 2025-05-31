@@ -11,6 +11,10 @@ namespace V2_WPF_EasySave.ViewModel
 {
     public class MainViewModel : INotifyPropertyChanged, IJobObserver
     {
+        public ICommand PauseCommand { get; }
+        public ICommand ResumeCommand { get; }
+        public ICommand StopCommand { get; }
+
         public ObservableCollection<JobDef> SavedJobs { get; set; } = new();
         public ObservableCollection<JobDef> SelectedJobs { get; set; } = new();
 
@@ -40,6 +44,10 @@ namespace V2_WPF_EasySave.ViewModel
             DeleteCommand = new RelayCommand(_ => DeleteSelectedJobs(), _ => CanModifyOrDelete);
             ExecuteCommand = new RelayCommand(_ => ExecuteSelectedJobs(), _ => CanModifyOrDelete);
             EditBlockedAppsCommand = new RelayCommand(_ => OpenBlockedAppsEditor());
+            PauseCommand = new RelayCommand(job => PauseJob(job as JobDef));
+            ResumeCommand = new RelayCommand(job => ResumeJob(job as JobDef));
+            StopCommand = new RelayCommand(job => StopJob(job as JobDef));
+
 
             LoadSavedJobs();
         }
@@ -108,6 +116,40 @@ namespace V2_WPF_EasySave.ViewModel
         }
 
         public void OnJobsChanged() => LoadSavedJobs();
+
+        private void PauseJob(JobDef job)
+        {
+            if (job != null)
+            {
+                job.IsPaused = true;
+                job.State = "EN PAUSE";
+                OnPropertyChanged(nameof(SavedJobs)); // Mise à jour de l'affichage
+            }
+        }
+
+
+        private void ResumeJob(JobDef job)
+        {
+            if (job != null)
+            {
+                job.IsPaused = false;
+                job.State = "EN COURS";
+                OnPropertyChanged(nameof(SavedJobs)); // Mise à jour de l'affichage
+            }
+        }
+
+
+        private void StopJob(JobDef job)
+        {
+            if (job != null)
+            {
+                job.StopRequested = true;
+                job.State = "ARRÊTÉ";
+                OnPropertyChanged(nameof(SavedJobs)); // Mise à jour de l'affichage
+            }
+        }
+
+
 
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged(string name) =>

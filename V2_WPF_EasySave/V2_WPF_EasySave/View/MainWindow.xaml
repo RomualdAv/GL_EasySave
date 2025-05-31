@@ -13,12 +13,38 @@
         <StackPanel>
             <TextBlock Text="{utils:Translate SavedJobs}" FontSize="20" Margin="0 0 0 10" />
 
-            <ListBox x:Name="JobsListBox"
-                     ItemsSource="{Binding SavedJobs}"
-                     DisplayMemberPath="Name"
-                     SelectionMode="Extended"
-                     Margin="10"
-                     SelectionChanged="JobsListBox_SelectionChanged"/>
+            <ListView x:Name="JobsListBox"
+          ItemsSource="{Binding SavedJobs}"
+          SelectionMode="Extended"
+          Margin="10">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Gray" BorderThickness="1" Padding="5" Margin="5">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                            <TextBlock Text="État :" />
+                            <TextBlock Text="{Binding State}" />
+
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                <Button Content="Pause"
+                                        Command="{Binding DataContext.PauseCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                        CommandParameter="{Binding}"
+                                        Margin="5,0" />
+                                <Button Content="Play"
+                                        Command="{Binding DataContext.ResumeCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                        CommandParameter="{Binding}"
+                                        Margin="5,0" />
+                                <Button Content="Stop"
+                                        Command="{Binding DataContext.StopCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                        CommandParameter="{Binding}"
+                                        Margin="5,0" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
             
             <StackPanel Orientation="Horizontal" Margin="0 10 0 0" HorizontalAlignment="Center">
                 <Button Content="{utils:Translate Create}" Command="{Binding CreateCommand}" Width="80" />

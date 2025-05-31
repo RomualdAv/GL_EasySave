@@ -25,8 +25,8 @@
                 <Button Content="{utils:Translate Edit}" Command="{Binding ModifyCommand}" Width="80" />
                 <Button Content="{utils:Translate Delete}" Command="{Binding DeleteCommand}" Width="80" />
                 <Button Content="{utils:Translate Execute}" Command="{Binding ExecuteCommand}" Width="80" />
-                <Button Content="{utils:Translate Refresh}" Command="{Binding RefreshCommand}" Width="80" />
                 <Button Content="Softwares" Command="{Binding EditBlockedAppsCommand}" Width="80" />
+                <Button Content="Size Limit" Command="{Binding EditSizeLimitCommand}" Width="80" />
             </StackPanel>
 
             <ComboBox SelectedValue="{Binding Source={x:Static utils:LanguageManager.Instance}, Path=CurrentLanguage}"

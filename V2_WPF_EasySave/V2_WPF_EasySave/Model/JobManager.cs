@@ -1,9 +1,9 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
+using System.IO;
 using System.Text.Json;
 using System.Windows;
 using V2_WPF_EasySave.Utils;
 using EasySave.Logging;
-using System.Diagnostics;
 
 namespace V2_WPF_EasySave.Model
 {
@@ -11,6 +11,7 @@ namespace V2_WPF_EasySave.Model
     {
         private readonly string _jobDirectory = Path.Combine("..", "..", "..", "SavedJobs");
         private readonly List<IJobObserver> _observers = new();
+        private static readonly object largeFileLock = new();
 
         public List<JobDef> GetAllSavedJobs()
         {
@@ -93,6 +94,7 @@ namespace V2_WPF_EasySave.Model
 
                 var dailyLogManager = new DailyLogManager(logDirectory);
                 var stateLogManager = new StateLogManager();
+                var sizeLimit = SizeLimit.Load();
 
                 Directory.CreateDirectory(target);
 
@@ -124,18 +126,32 @@ namespace V2_WPF_EasySave.Model
 
                         if (shouldCopy)
                         {
+                            long fileSize = new FileInfo(sourceFilePath).Length;
+                            long fileSizeKB = fileSize / 1024;
                             var stopwatch = Stopwatch.StartNew();
 
-                            File.Copy(sourceFilePath, targetFilePath, true);
-
-                            string extension = Path.GetExtension(sourceFilePath).ToLower();
-                            if (EncryptionSettings.ExtensionsToEncrypt.Contains(extension))
+                            // 🔒 Contrôle d'accès concurrent pour fichiers > n Ko
+                            if (fileSizeKB > sizeLimit.MaxParallelFileSizeKB)
                             {
-                                CryptoManager.EncryptFile(sourceFilePath, targetFilePath, EncryptionSettings.Key);
+                                lock (largeFileLock)
+                                {
+                                    File.Copy(sourceFilePath, targetFilePath, true);
+                                    if (EncryptionSettings.ExtensionsToEncrypt.Contains(Path.GetExtension(sourceFilePath).ToLower()))
+                                    {
+                                        CryptoManager.EncryptFile(sourceFilePath, targetFilePath, EncryptionSettings.Key);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                File.Copy(sourceFilePath, targetFilePath, true);
+                                if (EncryptionSettings.ExtensionsToEncrypt.Contains(Path.GetExtension(sourceFilePath).ToLower()))
+                                {
+                                    CryptoManager.EncryptFile(sourceFilePath, targetFilePath, EncryptionSettings.Key);
+                                }
                             }
 
                             stopwatch.Stop();
-                            long fileSize = new FileInfo(sourceFilePath).Length;
 
                             dailyLogManager.Log(new DailyLog
                             {

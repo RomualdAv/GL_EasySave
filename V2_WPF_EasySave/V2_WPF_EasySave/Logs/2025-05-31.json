@@ -1,0 +1,250 @@
+[
+  {
+    "Timestamp": "2025-05-31T09:39:21",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 2
+  },
+  {
+    "Timestamp": "2025-05-31T09:39:21",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 1
+  },
+  {
+    "Timestamp": "2025-05-31T09:41:32",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\Demo project K 2024 - Copie (2).mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\Demo project K 2024 - Copie (2).mp4",
+    "FileSize": 332363087,
+    "TransferTimeMs": 186
+  },
+  {
+    "Timestamp": "2025-05-31T09:41:32",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\Demo project K 2024 - Copie (3).mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\Demo project K 2024 - Copie (3).mp4",
+    "FileSize": 332363087,
+    "TransferTimeMs": 276
+  },
+  {
+    "Timestamp": "2025-05-31T09:41:32",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\Demo project K 2024 - Copie.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\Demo project K 2024 - Copie.mp4",
+    "FileSize": 332363087,
+    "TransferTimeMs": 294
+  },
+  {
+    "Timestamp": "2025-05-31T09:41:33",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\Demo project K 2024.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\Demo project K 2024.mp4",
+    "FileSize": 332363087,
+    "TransferTimeMs": 342
+  },
+  {
+    "Timestamp": "2025-05-31T09:41:33",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 1
+  },
+  {
+    "Timestamp": "2025-05-31T09:41:33",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 1
+  },
+  {
+    "Timestamp": "2025-05-31T09:41:52",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\Demo project K 2024 - Copie (2).mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\Demo project K 2024 - Copie (2).mp4",
+    "FileSize": 332363087,
+    "TransferTimeMs": 243
+  },
+  {
+    "Timestamp": "2025-05-31T09:41:52",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\Demo project K 2024 - Copie (3).mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\Demo project K 2024 - Copie (3).mp4",
+    "FileSize": 332363087,
+    "TransferTimeMs": 322
+  },
+  {
+    "Timestamp": "2025-05-31T09:41:52",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\Demo project K 2024 - Copie.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\Demo project K 2024 - Copie.mp4",
+    "FileSize": 332363087,
+    "TransferTimeMs": 324
+  },
+  {
+    "Timestamp": "2025-05-31T09:41:53",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\Demo project K 2024.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\Demo project K 2024.mp4",
+    "FileSize": 332363087,
+    "TransferTimeMs": 314
+  },
+  {
+    "Timestamp": "2025-05-31T09:41:53",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 0
+  },
+  {
+    "Timestamp": "2025-05-31T09:41:53",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 0
+  },
+  {
+    "Timestamp": "2025-05-31T09:42:10",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\Demo project K 2024 - Copie (2).mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\Demo project K 2024 - Copie (2).mp4",
+    "FileSize": 332363087,
+    "TransferTimeMs": 251
+  },
+  {
+    "Timestamp": "2025-05-31T09:42:10",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\Demo project K 2024 - Copie (3).mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\Demo project K 2024 - Copie (3).mp4",
+    "FileSize": 332363087,
+    "TransferTimeMs": 361
+  },
+  {
+    "Timestamp": "2025-05-31T09:42:10",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\Demo project K 2024 - Copie.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\Demo project K 2024 - Copie.mp4",
+    "FileSize": 332363087,
+    "TransferTimeMs": 326
+  },
+  {
+    "Timestamp": "2025-05-31T09:42:11",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\Demo project K 2024.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\Demo project K 2024.mp4",
+    "FileSize": 332363087,
+    "TransferTimeMs": 310
+  },
+  {
+    "Timestamp": "2025-05-31T09:42:11",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 1
+  },
+  {
+    "Timestamp": "2025-05-31T09:42:11",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 0
+  },
+  {
+    "Timestamp": "2025-05-31T09:43:52",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 1
+  },
+  {
+    "Timestamp": "2025-05-31T09:44:01",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie (2) - Copie.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie (2) - Copie.mp4",
+    "FileSize": 1670075831,
+    "TransferTimeMs": 9100
+  },
+  {
+    "Timestamp": "2025-05-31T09:44:45",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie (2).mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie (2).mp4",
+    "FileSize": 1670075831,
+    "TransferTimeMs": 44120
+  },
+  {
+    "Timestamp": "2025-05-31T09:45:11",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie.mp4",
+    "FileSize": 1670075831,
+    "TransferTimeMs": 25801
+  },
+  {
+    "Timestamp": "2025-05-31T09:45:31",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons.mp4",
+    "FileSize": 1670075831,
+    "TransferTimeMs": 20076
+  },
+  {
+    "Timestamp": "2025-05-31T09:45:31",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 15
+  },
+  {
+    "Timestamp": "2025-05-31T09:45:37",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 1
+  },
+  {
+    "Timestamp": "2025-05-31T09:45:50",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie (2) - Copie.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie (2) - Copie.mp4",
+    "FileSize": 1670075831,
+    "TransferTimeMs": 12373
+  },
+  {
+    "Timestamp": "2025-05-31T09:46:09",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie (2).mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie (2).mp4",
+    "FileSize": 1670075831,
+    "TransferTimeMs": 19427
+  },
+  {
+    "Timestamp": "2025-05-31T09:46:37",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie.mp4",
+    "FileSize": 1670075831,
+    "TransferTimeMs": 27573
+  },
+  {
+    "Timestamp": "2025-05-31T09:47:10",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons.mp4",
+    "FileSize": 1670075831,
+    "TransferTimeMs": 33139
+  }
+]

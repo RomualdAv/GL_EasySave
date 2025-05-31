@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using System.Text.Json.Serialization;
 
 namespace V2_WPF_EasySave.Model
 {
@@ -18,17 +19,9 @@ namespace V2_WPF_EasySave.Model
         [JsonIgnore]
         public bool StopRequested { get; set; } = false;
 
-
-        [JsonIgnore]
-        public int Progression { get; set; } = 0;
-
-
-        [JsonIgnore]
-        public string State { get; set; } = "EN_ATTENTE";
-
-
-
         private string _state = "EN_ATTENTE";
+        
+        [JsonIgnore]
         public string State
         {
             get => _state;
@@ -36,16 +29,13 @@ namespace V2_WPF_EasySave.Model
         }
 
         private int _progression;
+        
+        [JsonIgnore]
         public int Progression
         {
             get => _progression;
             set { _progression = value; OnPropertyChanged(); }
         }
-
-        public ManualResetEventSlim PauseEvent { get; set; } = new ManualResetEventSlim(true);
-
-
-        public bool StopRequested { get; set; } = false;
 
 
         public event PropertyChangedEventHandler? PropertyChanged;

@@ -104,18 +104,16 @@ namespace V2_WPF_EasySave.Model
 
                 foreach (var sourceFilePath in files)
                 {
-                    foreach (var sourceFilePath in files)
+                    if (job.StopRequested)
                     {
-                        if (job.StopRequested)
-                        {
-                            job.State = "ARRETE";
-                            break;
-                        }
-
-                        job.PauseEvent.WaitOne();
-                        job.State = "ACTIVE";
-
+                        job.State = "ARRETE";
+                        break;
                     }
+
+                    job.PauseEvent.WaitOne();
+                    job.State = "ACTIVE";
+
+                
 
 
                     string relativePath = Path.GetRelativePath(source, sourceFilePath);

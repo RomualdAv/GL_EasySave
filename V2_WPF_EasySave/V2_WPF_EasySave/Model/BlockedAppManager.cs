@@ -17,8 +17,8 @@ public class BlockedAppManager
 
     public static List<string> BlockedApplications = new List<string>
     {
-        "Calculator",
-    }
+        "Calculator"
+    };
 
     public static bool IsBlockedAppRunning()
     {

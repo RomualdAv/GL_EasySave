@@ -1,0 +1,18 @@
+[
+  {
+    "Timestamp": "2025-05-31T08:15:15",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 2
+  },
+  {
+    "Timestamp": "2025-05-31T08:15:15",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 1
+  }
+]

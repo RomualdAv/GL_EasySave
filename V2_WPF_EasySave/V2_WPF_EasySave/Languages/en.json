@@ -13,5 +13,8 @@
   "Full": "Full",
   "Differential": "Differential",
   "Validate": "Validate",
-  "Cancel": "Cancel"
+  "Cancel": "Cancel",
+  "Softwares": "Softwares",
+  "SizeLimit": "Size limit",
+  "Extensions": "Extensions"
 }

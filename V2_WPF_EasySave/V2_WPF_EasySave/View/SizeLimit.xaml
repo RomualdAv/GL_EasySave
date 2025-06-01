@@ -1,10 +1,16 @@
 ﻿<Window x:Class="V2_WPF_EasySave.View.SizeLimitWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:V2_WPF_EasySave.ViewModel"
         Title="Limite de taille" Height="150" Width="300">
+    
+    <Window.DataContext>
+        <vm:SizeLimitViewModel />
+    </Window.DataContext>
+
     <StackPanel Margin="10">
         <TextBlock Text="Taille max fichier en parallèle (Ko):" Margin="0 0 0 5"/>
-        <TextBox x:Name="MaxSizeBox" Margin="0 0 0 10"/>
-        <Button Content="Sauvegarder" Click="OnSaveClick"/>
+        <TextBox Text="{Binding MaxSizeKB, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"/>
+        <Button Content="Sauvegarder" Command="{Binding SaveCommand}" />
     </StackPanel>
 </Window>

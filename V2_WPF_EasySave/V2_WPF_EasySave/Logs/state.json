@@ -21,12 +21,12 @@
   },
   {
     "JobName": "ATEST2",
-    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie (2) - Copie.mp4",
-    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie (2) - Copie.mp4",
-    "State": "ACTIVE",
-    "TotalFilesToCopy": 6,
-    "TotalFilesSize": 6680306518,
-    "NbFilesLeftToDo": 4,
-    "Progression": 33
+    "SourceFilePath": "",
+    "TargetFilePath": "",
+    "State": "END",
+    "TotalFilesToCopy": 8,
+    "TotalFilesSize": 733504154,
+    "NbFilesLeftToDo": 0,
+    "Progression": 100
   }
 ]

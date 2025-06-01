@@ -1,0 +1,242 @@
+[
+  {
+    "Timestamp": "2025-06-01T09:08:47",
+    "JobName": "ATEST1",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 4
+  },
+  {
+    "Timestamp": "2025-06-01T09:08:47",
+    "JobName": "ATEST1",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 2
+  },
+  {
+    "Timestamp": "2025-06-01T09:09:06",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie (2) - Copie.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\PART 2 - BESTOF Genshin Doublage Elias Tsuna Neons - Copie (2) - Copie.mp4",
+    "FileSize": 1670075831,
+    "TransferTimeMs": 19124
+  },
+  {
+    "Timestamp": "2025-06-01T09:11:32",
+    "JobName": "ATEST1",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 2
+  },
+  {
+    "Timestamp": "2025-06-01T09:11:32",
+    "JobName": "ATEST1",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 0
+  },
+  {
+    "Timestamp": "2025-06-01T09:11:32",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\CelShading - Copie (2).mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\CelShading - Copie (2).mp4",
+    "FileSize": 122250160,
+    "TransferTimeMs": 37
+  },
+  {
+    "Timestamp": "2025-06-01T09:11:32",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\CelShading - Copie.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\CelShading - Copie.mp4",
+    "FileSize": 122250160,
+    "TransferTimeMs": 39
+  },
+  {
+    "Timestamp": "2025-06-01T09:11:33",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\CelShading.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\CelShading.mp4",
+    "FileSize": 122250160,
+    "TransferTimeMs": 1084
+  },
+  {
+    "Timestamp": "2025-06-01T09:11:33",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 87
+  },
+  {
+    "Timestamp": "2025-06-01T09:11:33",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 26
+  },
+  {
+    "Timestamp": "2025-06-01T09:12:03",
+    "JobName": "ATEST1",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 1
+  },
+  {
+    "Timestamp": "2025-06-01T09:12:03",
+    "JobName": "ATEST1",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 0
+  },
+  {
+    "Timestamp": "2025-06-01T09:12:03",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\CelShading - Copie (2).mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\CelShading - Copie (2).mp4",
+    "FileSize": 122250160,
+    "TransferTimeMs": 39
+  },
+  {
+    "Timestamp": "2025-06-01T09:12:04",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\CelShading - Copie - Copie (2).mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\CelShading - Copie - Copie (2).mp4",
+    "FileSize": 122250160,
+    "TransferTimeMs": 33
+  },
+  {
+    "Timestamp": "2025-06-01T09:12:04",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\CelShading - Copie - Copie (3).mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\CelShading - Copie - Copie (3).mp4",
+    "FileSize": 122250160,
+    "TransferTimeMs": 395
+  },
+  {
+    "Timestamp": "2025-06-01T09:12:04",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\CelShading - Copie - Copie.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\CelShading - Copie - Copie.mp4",
+    "FileSize": 122250160,
+    "TransferTimeMs": 33
+  },
+  {
+    "Timestamp": "2025-06-01T09:12:04",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\CelShading - Copie.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\CelShading - Copie.mp4",
+    "FileSize": 122250160,
+    "TransferTimeMs": 33
+  },
+  {
+    "Timestamp": "2025-06-01T09:12:04",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\CelShading.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\CelShading.mp4",
+    "FileSize": 122250160,
+    "TransferTimeMs": 42
+  },
+  {
+    "Timestamp": "2025-06-01T09:12:04",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 0
+  },
+  {
+    "Timestamp": "2025-06-01T09:12:04",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 2
+  },
+  {
+    "Timestamp": "2025-06-01T12:40:32",
+    "JobName": "ATEST1",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 7
+  },
+  {
+    "Timestamp": "2025-06-01T12:40:32",
+    "JobName": "ATEST1",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 3
+  },
+  {
+    "Timestamp": "2025-06-01T12:40:32",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\CelShading - Copie (2).mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\CelShading - Copie (2).mp4",
+    "FileSize": 122250160,
+    "TransferTimeMs": 98
+  },
+  {
+    "Timestamp": "2025-06-01T12:40:32",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\CelShading - Copie - Copie (2).mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\CelShading - Copie - Copie (2).mp4",
+    "FileSize": 122250160,
+    "TransferTimeMs": 276
+  },
+  {
+    "Timestamp": "2025-06-01T12:40:33",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\CelShading - Copie - Copie (3).mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\CelShading - Copie - Copie (3).mp4",
+    "FileSize": 122250160,
+    "TransferTimeMs": 461
+  },
+  {
+    "Timestamp": "2025-06-01T12:40:33",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\CelShading - Copie - Copie.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\CelShading - Copie - Copie.mp4",
+    "FileSize": 122250160,
+    "TransferTimeMs": 80
+  },
+  {
+    "Timestamp": "2025-06-01T12:40:33",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\CelShading - Copie.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\CelShading - Copie.mp4",
+    "FileSize": 122250160,
+    "TransferTimeMs": 454
+  },
+  {
+    "Timestamp": "2025-06-01T12:40:33",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\CelShading.mp4",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\CelShading.mp4",
+    "FileSize": 122250160,
+    "TransferTimeMs": 120
+  },
+  {
+    "Timestamp": "2025-06-01T12:40:33",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\ghdkgheiughoeurg.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\ghdkgheiughoeurg.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 10
+  },
+  {
+    "Timestamp": "2025-06-01T12:40:33",
+    "JobName": "ATEST2",
+    "SourceFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\SourceTest2\\jesaispas\\dansdossier.txt",
+    "TargetFilePath": "C:\\Users\\romua\\Desktop\\CESI\\A3\\Genie Logiciel\\TargetTest2\\jesaispas\\dansdossier.txt",
+    "FileSize": 1597,
+    "TransferTimeMs": 5
+  }
+]

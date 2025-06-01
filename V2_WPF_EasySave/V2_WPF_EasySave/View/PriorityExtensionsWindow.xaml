@@ -1,17 +1,32 @@
 ﻿<Window x:Class="V2_WPF_EasySave.View.PriorityExtensionsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:V2_WPF_EasySave.ViewModel"
         Title="Extensions prioritaires" Height="300" Width="400">
+
+    <Window.DataContext>
+        <vm:PriorityExtensionsViewModel />
+    </Window.DataContext>
+
     <StackPanel Margin="10">
         <TextBlock Text="Extensions prioritaires (ex: .docx, .pdf)" FontWeight="Bold" Margin="0 0 0 10" />
-        <ListBox x:Name="ExtensionsListBox" Height="150" />
-        
+
+        <ListBox ItemsSource="{Binding Extensions}" SelectedItem="{Binding SelectedExtension}" Height="150" />
+
         <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
-            <TextBox x:Name="ExtensionTextBox" Width="200" Margin="0 0 10 0" />
-            <Button Content="Ajouter" Width="80" Click="AddExtension_Click" />
+            <TextBox Text="{Binding NewExtension, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="0 0 10 0" />
+            <Button Content="Ajouter" Width="80" Command="{Binding AddExtensionCommand}" />
         </StackPanel>
 
-        <Button Content="Supprimer la sélection" Click="RemoveExtension_Click" Margin="0 0 0 10" />
-        <Button Content="Enregistrer" Click="Save_Click" HorizontalAlignment="Right" Width="100" />
+        <Button Content="Supprimer la sélection"
+                Width="150"
+                Command="{Binding RemoveExtensionCommand}"
+                CommandParameter="{Binding SelectedExtension}"
+                Margin="0 0 0 10" />
+
+        <Button Content="Enregistrer"
+                Width="100"
+                Command="{Binding SaveCommand}"
+                HorizontalAlignment="Right" />
     </StackPanel>
 </Window>

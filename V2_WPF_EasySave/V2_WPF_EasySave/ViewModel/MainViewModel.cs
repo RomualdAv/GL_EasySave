@@ -18,7 +18,8 @@ namespace V2_WPF_EasySave.ViewModel
         public ObservableCollection<JobDef> SavedJobs { get; set; } = new();
         public ObservableCollection<JobDef> SelectedJobs { get; set; } = new();
 
-        public bool CanModifyOrDelete => SelectedJobs.Any();
+        public bool CanModifyOrDelete => SelectedJobs.Any() && SelectedJobs.All(j => j.State != "EN COURS" && j.State != "EN PAUSE");
+
 
         public ICommand RefreshCommand { get; }
         public ICommand CreateCommand { get; }
@@ -36,7 +37,10 @@ namespace V2_WPF_EasySave.ViewModel
             SelectedJobs.CollectionChanged += (_, __) =>
             {
                 OnPropertyChanged(nameof(CanModifyOrDelete));
+                CommandManager.InvalidateRequerySuggested(); // ← ajoute cette ligne
             };
+
+
 
             RefreshCommand = new RelayCommand(_ => LoadSavedJobs());
             CreateCommand = new RelayCommand(_ => OpenJobEditor(null));

@@ -49,6 +49,15 @@ namespace V2_WPF_EasySave.Model
         public void DeleteJob(string jobName)
         {
             string path = Path.Combine(_jobDirectory, jobName + ".json");
+            var job = GetAllSavedJobs().FirstOrDefault(j => j.Name == jobName);
+    
+            if (job != null && (job.State == "ACTIVE" || job.State == "EN_PAUSE"))
+            {
+                MessageBox.Show("Vous ne pouvez pas supprimer un job en cours d'exécution ou en pause.", 
+                    "Action non autorisée", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             if (File.Exists(path))
             {
                 File.Delete(path);
@@ -113,7 +122,7 @@ namespace V2_WPF_EasySave.Model
                     job.PauseEvent.WaitOne();
                     job.State = "ACTIVE";
 
-                
+
 
 
                     string relativePath = Path.GetRelativePath(source, sourceFilePath);
@@ -217,6 +226,14 @@ namespace V2_WPF_EasySave.Model
                 Application.Current.Dispatcher.Invoke(() =>
                     MessageBox.Show($"Error while executing job : {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error));
             }
+            
+            if (!job.StopRequested)
+            {
+                job.State = "TERMINE";
+                SaveJob(job); 
+            }
+
+
         }
 
         public void RegisterObserver(IJobObserver observer)

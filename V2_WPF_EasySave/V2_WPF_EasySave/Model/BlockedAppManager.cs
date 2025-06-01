@@ -15,6 +15,22 @@ public class BlockedAppManager
         return JsonSerializer.Deserialize<List<string>>(json) ?? new List<string>();
     }
 
+    public static List<string> BlockedApplications = new List<string>
+    {
+        "Calculator"
+    };
+
+    public static bool IsBlockedAppRunning()
+    {
+        foreach (string appName in BlockedApplications)
+        {
+            var processes = Process.GetProcessesByName(appName);
+            if (processes.Length > 0)
+                return true;
+        }
+        return false;
+    }
+
     public void SaveBlockedApps(List<string> apps)
     {
         var json = JsonSerializer.Serialize(apps, new JsonSerializerOptions { WriteIndented = true });

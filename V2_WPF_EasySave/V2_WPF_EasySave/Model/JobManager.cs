@@ -77,6 +77,8 @@ namespace V2_WPF_EasySave.Model
                     MessageBox.Show("A blocking software is running while you attempt to run a job.", "Execution blocked", MessageBoxButton.OK, MessageBoxImage.Warning));
                 return;
             }
+            
+            
 
             try
             {
@@ -113,6 +115,15 @@ namespace V2_WPF_EasySave.Model
                 
                 void CopyFile(string sourceFilePath)
                 {
+                    while (blockedAppManager.IsAnyBlockedAppRunning())
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("⏸️  Logiciel métier détecté. Pause temporaire en cours...");
+                        Console.ResetColor();
+                        Thread.Sleep(1000);
+                    }
+
+
                     string relativePath = Path.GetRelativePath(source, sourceFilePath);
                     string targetFilePath = Path.Combine(target, relativePath);
                     string? targetDir = Path.GetDirectoryName(targetFilePath);
